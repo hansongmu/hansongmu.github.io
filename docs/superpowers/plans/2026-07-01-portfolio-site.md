@@ -211,6 +211,7 @@ export const builds: Build[] = [
     slug: 'ai-platform',
     title: '사내 AI 플랫폼 (RAG 챗봇)',
     category: 'AI Platform',
+    org: 'GlobalZeus',
     period: '2025', // TODO: 정확한 수행 기간 확인
     blocks: [
       { type: 'heading', text: '주요 내용' },
@@ -230,6 +231,7 @@ export const builds: Build[] = [
     slug: 'crm',
     title: '고객 관계 관리 시스템 (CRM)',
     category: 'Enterprise System',
+    org: 'GlobalZeus',
     period: '2024', // TODO: 정확한 수행 기간 확인
     blocks: [
       { type: 'heading', text: '주요 내용' },
@@ -246,6 +248,7 @@ export const builds: Build[] = [
     slug: 'visit-reservation',
     title: '방문 예약 시스템',
     category: 'Enterprise System',
+    org: 'GlobalZeus',
     period: '2024', // TODO: 정확한 수행 기간 확인
     blocks: [
       { type: 'heading', text: '주요 내용' },
@@ -262,6 +265,7 @@ export const builds: Build[] = [
     slug: 'hr-evaluation',
     title: '인사평가 시스템',
     category: 'Enterprise System',
+    org: 'GlobalZeus',
     period: '2023 — 2024',
     blocks: [
       { type: 'heading', text: '주요 내용' },
@@ -278,6 +282,7 @@ export const builds: Build[] = [
     slug: 'pms',
     title: '프로젝트 관리 시스템 (PMS)',
     category: 'Enterprise System',
+    org: 'GlobalZeus',
     period: '2023 — 2025',
     blocks: [
       { type: 'heading', text: '주요 내용' },
