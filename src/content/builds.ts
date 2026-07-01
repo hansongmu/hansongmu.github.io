@@ -123,7 +123,7 @@ export const builds: Build[] = [
     blocks: [
       { type: 'heading', text: '주요 내용' },
       { type: 'paragraph', text: '선택적 근로제 도입에 맞춰 누락·이상 근무 데이터를 체계적으로 관리하는 시스템을 1인 풀스택으로 구축했습니다.' },
-      { type: 'paragraph', text: '관리자가 일일이 확인하는 대신 "임직원 셀프 소명 → 자동 집계 → 부서장 자동 보고" 흐름으로 설계했습니다.' },
+      { type: 'paragraph', text: '관리자가 일일이 확인하는 대신 “임직원 셀프 소명 → 자동 집계 → 부서장 자동 보고” 흐름으로 설계했습니다.' },
       { type: 'paragraph', text: '이상치 정의·분석 로직과 유형별 발생 빈도·추이를 차트로 시각화한 근태 대시보드를 구현했습니다.' },
       { type: 'heading', text: '주요 성과' },
       { type: 'paragraph', text: '소명 데이터를 집계해 근태 보고서를 자동 생성하고, 매월 1일 cron으로 부서장에게 자동 발송되도록 구현했습니다.' },
