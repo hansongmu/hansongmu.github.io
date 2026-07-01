@@ -353,8 +353,8 @@ import { getBuildBySlug, getAllBuildSlugs } from './getBuild';
 
 describe('getBuildBySlug', () => {
   it('returns the build matching the slug', () => {
-    const build = getBuildBySlug('sample-project');
-    expect(build?.title).toBe('Sample Project');
+    const build = getBuildBySlug('ai-platform');
+    expect(build?.title).toBe('사내 AI 플랫폼 (RAG 챗봇)');
   });
 
   it('returns undefined for an unknown slug', () => {
@@ -365,9 +365,9 @@ describe('getBuildBySlug', () => {
 describe('getAllBuildSlugs', () => {
   it('returns every build slug', () => {
     const slugs = getAllBuildSlugs();
-    expect(slugs).toContain('sample-project');
-    expect(slugs).toContain('second-project');
-    expect(slugs).toHaveLength(2);
+    expect(slugs).toContain('ai-platform');
+    expect(slugs).toContain('attendance');
+    expect(slugs).toHaveLength(7);
   });
 });
 ```
