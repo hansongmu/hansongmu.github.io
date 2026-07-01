@@ -6,7 +6,9 @@
 
 **Architecture:** Next.js 15 App Router로 정적 사이트(`output: 'export'`)를 생성한다. 콘텐츠(프로필·작업물)는 `content/` 데이터 파일로 코드와 분리하고, UI는 역할별 컴포넌트로 나눈다. 순수 로직(데이터 조회)만 Vitest로 테스트하고, UI/레이아웃은 타입체크 + `next build` + 로컬 렌더 확인으로 검증한다. GitHub Actions가 push마다 빌드·배포한다.
 
-**Tech Stack:** Next.js 15 (App Router), React 18, TypeScript, Tailwind CSS, framer-motion, Vitest, pnpm, GitHub Actions.
+**Tech Stack:** Next.js 16 (App Router, Turbopack, Tailwind v4), React 19, TypeScript, framer-motion, Vitest, pnpm, GitHub Actions.
+
+> 참고: Task 1에서 `create-next-app@latest`가 **Next.js 16 + React 19 + Tailwind v4**를 설치함(브리프의 "15"는 참고용). 이 저장소 `AGENTS.md`가 "학습된 Next.js와 다르다"고 명시하므로, Next.js 코드를 작성하기 전 `node_modules/next/dist/docs/`의 해당 가이드를 확인할 것.
 
 ## Global Constraints
 
@@ -121,7 +123,7 @@ git commit -m "chore: scaffold Next.js 15 with static export, remove legacy site
 **Interfaces:**
 - Produces:
   - `type BuildBlock = { type: 'heading'; text: string } | { type: 'paragraph'; text: string } | { type: 'image'; src: string; alt: string; caption?: string }`
-  - `interface Build { slug: string; title: string; category: string; org?: string; period: string; blocks: BuildBlock[] }`
+  - `interface Build { slug: string; title: string; category: string; org?: string; period: string; tech?: string; blocks: BuildBlock[] }`
   - `interface Profile { name: string; tagline: string; paragraphs: string[]; links: { label: string; href: string }[] }`
   - `const builds: Build[]`
   - `const profile: Profile`
@@ -164,6 +166,7 @@ export interface Build {
   category: string;
   org?: string;
   period: string;
+  tech?: string;
   blocks: BuildBlock[];
 }
 
@@ -184,11 +187,11 @@ import type { Profile } from './types';
 
 export const profile: Profile = {
   name: '한송무',
-  tagline: 'Product & systems developer based in Seoul, Korea',
+  tagline: '5년차 풀스택 개발자 · Seoul, Korea',
   paragraphs: [
-    '사내 시스템을 기획부터 프론트엔드·백엔드까지 직접 설계하고 구현합니다. 프론트엔드는 Next.js, 백엔드는 Node.js와 FastAPI, 데이터베이스는 MSSQL을 주로 사용합니다.',
-    'AI 플랫폼, CRM, 방문예약, 인사평가, 프로젝트 관리(PMS) 등 다양한 사내 서비스를 만들었습니다. 조형적으로 정돈되면서 정보 위계가 분명한 인터페이스를 지향합니다.',
-    'IT 시스템 운영·보안, 자산 관리와 헬프데스크, UiPath 기반 RPA 자동화까지 폭넓게 담당하고 있습니다.',
+    '반도체·디스플레이 장비 제조 기업 제우스에서 사내 시스템을 개발·운영합니다. 요구사항 분석부터 DB 모델링, UI/UX 설계, API 개발, 배포·운영까지 전 과정(End-to-End)을 직접 다룹니다.',
+    'AI 플랫폼, 업무 앱 제작 플랫폼, PMS, CRM, 인사평가 등 전사 업무용 시스템을 만들었습니다. 프론트엔드는 Next.js, 백엔드는 Node.js·FastAPI, 데이터베이스는 MSSQL을 주로 사용합니다.',
+    '“편함보다는 불편함을 추구하는 개발자”를 지향합니다. 개발자의 편의보다 사용자 경험을 우선하고, 유지보수성과 확장성을 고려한 구조 설계에 집중합니다.',
   ],
   links: [
     { label: 'Email', href: 'mailto:han95@globalzeus.com' },
@@ -213,6 +216,7 @@ export const builds: Build[] = [
     category: 'AI Platform',
     org: 'GlobalZeus',
     period: '2025', // TODO: 정확한 수행 기간 확인
+    tech: 'Next.js · Node.js · FastAPI · LangGraph · Qdrant · Redis · MSSQL',
     blocks: [
       { type: 'heading', text: '주요 내용' },
       { type: 'paragraph', text: 'RAG(Retrieval-Augmented Generation) 기반 사내 챗봇 AI 플랫폼을 설계 및 개발했습니다.' },
@@ -228,11 +232,49 @@ export const builds: Build[] = [
     ],
   },
   {
+    slug: 'work-app-platform',
+    title: '업무 앱 제작 플랫폼',
+    category: 'No-Code Platform',
+    org: 'GlobalZeus',
+    period: '2026',
+    tech: 'Next.js · Node.js · MSSQL · Redis · Socket.IO',
+    blocks: [
+      { type: 'heading', text: '주요 내용' },
+      { type: 'paragraph', text: '그룹웨어 전환 과정에서 다우오피스 Works를 대체하기 위한 노코드 기반 사내 협업 플랫폼을 1인 풀스택으로 구축했습니다.' },
+      { type: 'paragraph', text: '코드 없이 입력 양식을 설계하는 폼 빌더와, 필드 단위로 외부 DB SELECT 쿼리를 연동하는 데이터 연동 기능을 구현했습니다.' },
+      { type: 'paragraph', text: '목록을 테이블·보드(칸반)로 전환하고 게이지·막대·라인·카드 차트로 시각화하는 화면을 구현했습니다.' },
+      { type: 'paragraph', text: '상태 머신(워크플로우) 기반 프로세스 관리와, 저장 시 정합성 오류를 서버에서 검증하는 방어 로직을 구성했습니다.' },
+      { type: 'paragraph', text: '공유 범위·역할 기반 권한·문서/앱 단위 비공개를 조합한 접근 제어를 구현했습니다.' },
+      { type: 'heading', text: '주요 성과' },
+      { type: 'paragraph', text: '앱 간 데이터 참조, CSV 일괄 등록(백그라운드 워커), 비동기 큐 기반 다운로드 등 운영 기능을 통합했습니다.' },
+      { type: 'paragraph', text: '앱별 API Key 발급으로 외부 시스템과 연동하고, 사내 표준 결재 시스템과의 연동까지 지원해 노코드 앱을 실제 업무 흐름에 연결했습니다.' },
+    ],
+  },
+  {
+    slug: 'pms',
+    title: '프로젝트 관리 시스템 (PMS)',
+    category: 'Enterprise System',
+    org: 'GlobalZeus',
+    period: '2023 — 2025',
+    tech: 'Next.js · Node.js · MSSQL · Elasticsearch · Socket.IO',
+    blocks: [
+      { type: 'heading', text: '주요 내용' },
+      { type: 'paragraph', text: 'PMS 전반 아키텍처를 설계하고, WBS 기반 프로젝트 구조를 중심으로 보고·업무노트·산출물 관리 기능을 구현했습니다.' },
+      { type: 'paragraph', text: 'ERP 연동 프로젝트 생성·관리 기능과 대시보드·설계정보·원가정보·공수정보 조회 기능을 개발했습니다.' },
+      { type: 'paragraph', text: 'Elasticsearch 기반 통합 검색(보고·업무노트·댓글·첨부)을 설계·구현했습니다.' },
+      { type: 'paragraph', text: 'Socket.IO를 활용한 메모 동시 작성 제어·편집 상태 표시·이탈 처리 기능을 구현했습니다.' },
+      { type: 'heading', text: '주요 성과' },
+      { type: 'paragraph', text: 'WBS 기반 보고·업무노트·산출물 관리를 중심으로 프로젝트 수행 이력을 체계적으로 관리할 수 있는 구조를 구현했습니다.' },
+      { type: 'paragraph', text: 'ERP 연동으로 설계·원가·공수 정보를 통합 조회하고, 통합 검색과 정기 보고 자동화로 운영 편의를 높였습니다.' },
+    ],
+  },
+  {
     slug: 'crm',
     title: '고객 관계 관리 시스템 (CRM)',
     category: 'Enterprise System',
     org: 'GlobalZeus',
     period: '2024', // TODO: 정확한 수행 기간 확인
+    tech: 'Next.js · Node.js · MSSQL',
     blocks: [
       { type: 'heading', text: '주요 내용' },
       { type: 'paragraph', text: '거래처·담당자·영업 프로젝트·영업 활동 중심의 CRM 시스템 화면과 기능을 설계하고 구현했습니다.' },
@@ -245,28 +287,12 @@ export const builds: Build[] = [
     ],
   },
   {
-    slug: 'visit-reservation',
-    title: '방문 예약 시스템',
-    category: 'Enterprise System',
-    org: 'GlobalZeus',
-    period: '2024', // TODO: 정확한 수행 기간 확인
-    blocks: [
-      { type: 'heading', text: '주요 내용' },
-      { type: 'paragraph', text: '임직원 승인 절차 기반의 출입 관리를 위해 방문예약 시스템 화면과 기능을 설계하고 개발했습니다.' },
-      { type: 'paragraph', text: '신청 유형에 따라 교육 이수·서약서 작성·QR 코드 발급으로 이어지는 프로세스를 구현했습니다.' },
-      { type: 'paragraph', text: '임직원 신청자와 비회원 방문객을 구분해 각각의 신청·조회·처리 흐름을 반영했습니다.' },
-      { type: 'paragraph', text: '경비실·키오스크 환경에서 방문 현황·QR 확인·카드 배포 및 회수 상태를 관리하는 화면을 개발했습니다.' },
-      { type: 'heading', text: '주요 성과' },
-      { type: 'paragraph', text: '방문 신청→교육·서약→승인→출입 확인까지 이어지는 전체 방문 관리 프로세스를 하나의 시스템으로 통합했습니다.' },
-      { type: 'paragraph', text: '방문 유형별 교육·서약·카드 발급 정책을 다르게 적용할 수 있는 구조로 운영 유연성을 높였습니다.' },
-    ],
-  },
-  {
     slug: 'hr-evaluation',
     title: '인사평가 시스템',
     category: 'Enterprise System',
     org: 'GlobalZeus',
     period: '2023 — 2024',
+    tech: 'Next.js · Node.js · MSSQL',
     blocks: [
       { type: 'heading', text: '주요 내용' },
       { type: 'paragraph', text: '목표 기반 인사평가 체계의 시스템 구조를 설계하고 UI/UX를 기획·구현했습니다.' },
@@ -279,20 +305,38 @@ export const builds: Build[] = [
     ],
   },
   {
-    slug: 'pms',
-    title: '프로젝트 관리 시스템 (PMS)',
+    slug: 'visit-reservation',
+    title: '방문 예약 시스템',
     category: 'Enterprise System',
     org: 'GlobalZeus',
-    period: '2023 — 2025',
+    period: '2024', // TODO: 정확한 수행 기간 확인
+    tech: 'Next.js · Node.js · MSSQL',
     blocks: [
       { type: 'heading', text: '주요 내용' },
-      { type: 'paragraph', text: 'PMS 전반 아키텍처를 설계하고, WBS 기반 프로젝트 구조를 중심으로 보고·업무노트·산출물 관리 기능을 구현했습니다.' },
-      { type: 'paragraph', text: 'ERP 연동 프로젝트 생성·관리 기능과 대시보드·설계정보·원가정보·공수정보 조회 기능을 개발했습니다.' },
-      { type: 'paragraph', text: 'Elasticsearch 기반 통합 검색(보고·업무노트·댓글·첨부)을 설계·구현했습니다.' },
-      { type: 'paragraph', text: 'Socket.IO를 활용한 메모 동시 작성 제어·편집 상태 표시·이탈 처리 기능을 구현했습니다.' },
+      { type: 'paragraph', text: '임직원 승인 절차 기반의 출입 관리를 위해 방문예약 시스템 화면과 기능을 설계하고 개발했습니다.' },
+      { type: 'paragraph', text: '신청 유형에 따라 교육 이수·서약서 작성·QR 코드 발급으로 이어지는 프로세스를 구현했습니다.' },
+      { type: 'paragraph', text: '임직원 신청자와 비회원 방문객을 구분해 각각의 신청·조회·처리 흐름을 반영했습니다.' },
+      { type: 'paragraph', text: '경비실·키오스크 환경에서 방문 현황·QR 확인·카드 배포 및 회수 상태를 관리하는 화면을 개발했습니다.' },
       { type: 'heading', text: '주요 성과' },
-      { type: 'paragraph', text: 'WBS 기반 보고·업무노트·산출물 관리를 중심으로 프로젝트 수행 이력을 체계적으로 관리할 수 있는 구조를 구현했습니다.' },
-      { type: 'paragraph', text: 'ERP 연동으로 설계·원가·공수 정보를 통합 조회하고, 통합 검색과 정기 보고 자동화로 운영 편의를 높였습니다.' },
+      { type: 'paragraph', text: '방문 신청→교육·서약→승인→출입 확인까지 이어지는 전체 방문 관리 프로세스를 하나의 시스템으로 통합했습니다.' },
+      { type: 'paragraph', text: '방문 유형별 교육·서약·카드 발급 정책을 다르게 적용할 수 있는 구조로 운영 유연성을 높였습니다.' },
+    ],
+  },
+  {
+    slug: 'attendance',
+    title: '근태현황 및 이상치 소명 시스템',
+    category: 'Enterprise System',
+    org: 'GlobalZeus',
+    period: '2025. 1 — 2025. 3',
+    tech: 'Node.js · EJS · MSSQL',
+    blocks: [
+      { type: 'heading', text: '주요 내용' },
+      { type: 'paragraph', text: '선택적 근로제 도입에 맞춰 누락·이상 근무 데이터를 체계적으로 관리하는 시스템을 1인 풀스택으로 구축했습니다.' },
+      { type: 'paragraph', text: '관리자가 일일이 확인하는 대신 “임직원 셀프 소명 → 자동 집계 → 부서장 자동 보고” 흐름으로 설계했습니다.' },
+      { type: 'paragraph', text: '이상치 정의·분석 로직과 유형별 발생 빈도·추이를 차트로 시각화한 근태 대시보드를 구현했습니다.' },
+      { type: 'heading', text: '주요 성과' },
+      { type: 'paragraph', text: '소명 데이터를 집계해 근태 보고서를 자동 생성하고, 매월 1일 cron으로 부서장에게 자동 발송되도록 구현했습니다.' },
+      { type: 'paragraph', text: '관리자 부담을 줄이면서 이상 근무를 체계적으로 추적·관리할 수 있는 구조를 마련했습니다.' },
     ],
   },
 ];
@@ -671,6 +715,9 @@ export function BuildDetail({ build }: { build: Build }) {
         <p className="mt-1 text-sm text-neutral-500">
           {[build.category, build.org, build.period].filter(Boolean).join(' · ')}
         </p>
+        {build.tech && (
+          <p className="mt-1 text-xs text-neutral-400">{build.tech}</p>
+        )}
       </header>
 
       <div className="mt-10 space-y-6">
