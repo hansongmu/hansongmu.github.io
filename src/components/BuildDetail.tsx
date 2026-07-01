@@ -1,17 +1,20 @@
 import type { Build } from '@/content/types';
+import { FadeIn } from './FadeIn';
 
 export function BuildDetail({ build }: { build: Build }) {
   return (
     <article className="mx-auto w-full max-w-[688px] px-4 pt-16">
-      <header>
-        <h1 className="text-lg font-bold text-neutral-900">{build.title}</h1>
-        <p className="mt-1 text-sm text-neutral-500">
-          {[build.category, build.org, build.period].filter(Boolean).join(' · ')}
-        </p>
-        {build.tech && (
-          <p className="mt-1 text-xs text-neutral-400">{build.tech}</p>
-        )}
-      </header>
+      <FadeIn>
+        <header>
+          <h1 className="text-lg font-bold text-neutral-900">{build.title}</h1>
+          <p className="mt-1 text-sm text-neutral-500">
+            {[build.category, build.org, build.period].filter(Boolean).join(' · ')}
+          </p>
+          {build.tech && (
+            <p className="mt-1 text-xs text-neutral-400">{build.tech}</p>
+          )}
+        </header>
+      </FadeIn>
 
       <div className="mt-10 space-y-6">
         {build.blocks.map((block, i) => {
