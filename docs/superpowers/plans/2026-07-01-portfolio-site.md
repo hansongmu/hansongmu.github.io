@@ -194,7 +194,8 @@ export const profile: Profile = {
     '“편함보다는 불편함을 추구하는 개발자”를 지향합니다. 개발자의 편의보다 사용자 경험을 우선하고, 유지보수성과 확장성을 고려한 구조 설계에 집중합니다.',
   ],
   links: [
-    { label: 'Email', href: 'mailto:han95@globalzeus.com' },
+    { label: 'Email', href: 'mailto:gksthdan@naver.com' },
+    { label: 'Phone', href: 'tel:01092110287' },
     { label: 'GitHub', href: 'https://github.com/ssong-mu' },
   ],
 };
@@ -477,7 +478,7 @@ export function Nav() {
           {profile.name}
         </Link>
         <a
-          href="mailto:han95@globalzeus.com"
+          href="mailto:gksthdan@naver.com"
           className="text-sm text-neutral-500 hover:text-neutral-900"
         >
           Contact
