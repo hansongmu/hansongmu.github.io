@@ -5,11 +5,13 @@ import { FadeIn } from './FadeIn';
 export function BuildList({ builds }: { builds: Build[] }) {
   return (
     <FadeIn delay={0.1}>
-      <section>
+      <section className="pt-3">
         <h2 className="text-[15px] font-semibold text-neutral-900">Builds</h2>
-        <div className="mt-2 divide-y divide-neutral-100">
+        <div className="mt-4 divide-y divide-neutral-200">
           {builds.map((b) => (
-            <BuildListItem key={b.slug} build={b} />
+            <div key={b.slug} className="py-1">
+              <BuildListItem build={b} />
+            </div>
           ))}
         </div>
       </section>

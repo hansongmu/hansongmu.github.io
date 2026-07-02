@@ -1,19 +1,15 @@
 import Link from 'next/link';
-import { profile } from '@/content/profile';
 
 export function Nav() {
   return (
-    <nav className="sticky top-0 z-10 w-full border-b border-neutral-100 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-[688px] items-center justify-between px-4 py-3">
-        <Link href="/" className="text-sm font-semibold text-neutral-900">
-          {profile.name}
-        </Link>
-        <a
-          href="mailto:gksthdan@naver.com"
-          className="text-sm text-neutral-500 hover:text-neutral-900"
+    <nav className="sticky top-0 z-10 w-full bg-white/80 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-[688px] items-center px-4 py-4">
+        <Link
+          href="/"
+          className="flex h-7 items-center rounded-lg px-2 text-sm font-medium text-neutral-800 transition-colors hover:bg-neutral-100"
         >
-          Contact
-        </a>
+          Index
+        </Link>
       </div>
     </nav>
   );
