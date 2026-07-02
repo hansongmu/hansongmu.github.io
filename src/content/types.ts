@@ -14,6 +14,11 @@ export interface Build {
   blocks: BuildBlock[];
 }
 
+export interface TechGroup {
+  category: string;
+  items: string[];
+}
+
 export interface Profile {
   name: string;
   tagline: string;
