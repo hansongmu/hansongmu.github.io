@@ -23,6 +23,14 @@
 # misc
 .DS_Store
 *.pem
+.eslintcache
+
+# editors
+.vscode/
+.idea/
+
+# claude code (local-only settings)
+.claude/settings.local.json
 
 # debug
 npm-debug.log*
