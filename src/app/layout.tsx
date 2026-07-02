@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <Nav />
-        <main>{children}</main>
+        <main className="pt-14">{children}</main>
         <Footer />
       </body>
     </html>
