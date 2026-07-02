@@ -4,7 +4,7 @@ import { FadeIn } from './FadeIn';
 
 export function BuildList({ builds }: { builds: Build[] }) {
   return (
-    <FadeIn delay={0.1}>
+    <FadeIn delay={0.15}>
       <section className="pt-3">
         <h2 className="text-[15px] font-semibold text-neutral-900">Projects</h2>
         <div className="mt-4 divide-y divide-neutral-200">

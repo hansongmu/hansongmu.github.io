@@ -4,7 +4,7 @@ import { FadeIn } from './FadeIn';
 
 export function TechStack() {
   return (
-    <FadeIn delay={0.15}>
+    <FadeIn delay={0.1}>
       <section className="pt-3">
         <h2 className="text-[15px] font-semibold text-neutral-900">Tech</h2>
         <div className="mt-4 space-y-3">

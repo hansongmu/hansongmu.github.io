@@ -11,9 +11,9 @@ export default function Home() {
       <Header />
       <Intro />
       <SectionDivider />
-      <BuildList builds={builds} />
-      <SectionDivider />
       <TechStack />
+      <SectionDivider />
+      <BuildList builds={builds} />
     </div>
   );
 }
