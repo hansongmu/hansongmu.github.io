@@ -1,6 +1,7 @@
 import { Header } from '@/components/Header';
 import { Intro } from '@/components/Intro';
 import { BuildList } from '@/components/BuildList';
+import { TechStack } from '@/components/TechStack';
 import { SectionDivider } from '@/components/SectionDivider';
 import { builds } from '@/content/builds';
 
@@ -11,6 +12,8 @@ export default function Home() {
       <Intro />
       <SectionDivider />
       <BuildList builds={builds} />
+      <SectionDivider />
+      <TechStack />
     </div>
   );
 }
