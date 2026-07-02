@@ -11,6 +11,5 @@ export const profile: Profile = {
   links: [
     { label: 'Email', href: 'mailto:gksthdan@naver.com' },
     { label: 'Phone', href: 'tel:01092110287' },
-    { label: 'GitHub', href: 'https://github.com/ssong-mu' },
   ],
 };

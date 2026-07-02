@@ -10,6 +10,7 @@ export interface Build {
   org?: string;
   period: string;
   tech?: string;
+  isNew?: boolean;
   blocks: BuildBlock[];
 }
 

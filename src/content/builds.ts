@@ -29,6 +29,7 @@ export const builds: Build[] = [
     org: 'GlobalZeus',
     period: '2026',
     tech: 'Next.js · Node.js · MSSQL · Redis · Socket.IO',
+    isNew: true,
     blocks: [
       { type: 'heading', text: '주요 내용' },
       { type: 'paragraph', text: '그룹웨어 전환 과정에서 다우오피스 Works를 대체하기 위한 노코드 기반 사내 협업 플랫폼을 1인 풀스택으로 구축했습니다.' },
