@@ -4,7 +4,7 @@ import type { Build } from '@/content/types';
 export function BuildListItem({ build }: { build: Build }) {
   return (
     <Link
-      href={`/builds/${build.slug}`}
+      href={`/projects/${build.slug}`}
       className="group flex h-8 items-center justify-between"
     >
       <span className="flex items-center gap-1">
