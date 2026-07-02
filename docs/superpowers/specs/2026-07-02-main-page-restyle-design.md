@@ -32,6 +32,15 @@
 - 왼쪽 `© 2026 한송무`(13px, neutral-400), 오른쪽 Email · Phone 링크를 세로 구분선으로 나열.
 - GitHub 링크 제거 (profile.links에서 삭제).
 
+## 후속 반영 (사용자 피드백)
+
+- 섹션 인덱스: IntersectionObserver → 스크롤 기반(읽기 선 통과 마지막 헤딩 + 페이지 끝 도달 시 마지막 섹션) 방식으로 교체. 클릭 시 즉시 활성화.
+- Nav: `Index` 탭을 화면 왼쪽 끝으로. 균일 blur 대신 참고 사이트 방식의 프로그레시브 블러(위로 갈수록 강해지는 8겹, 최대 5px) + 스크롤 연동 페이드 인(framer-motion `useScroll`).
+- 메인에 Tech 섹션 추가 — 카테고리는 노션 기술 문서의 `유형` 분류(Frontend/Backend/Infra & Database/AI Frameworks/Tools) 그대로. 노션 내보내기에 페이지 아이콘은 없어 텍스트로만 표시.
+- Builds → **Projects** 로 명칭 변경(섹션 제목 + `/projects/[slug]` 라우트).
+- 프로젝트 기간을 노션 문서의 실제 진행 기간으로 교체하고 종료 시점 기준 최신순 정렬.
+- 프로필: 태그라인에서 "Seoul, Korea" 제거, 소개에서 회사명("제우스") 제거.
+
 ## 검증
 - `pnpm test`, `npx tsc --noEmit`, `pnpm build` 통과.
 - dev 서버에서 메인/상세 페이지 육안 확인.
