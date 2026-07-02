@@ -16,16 +16,37 @@ export function SectionIndex({ items }: { items: SectionIndexItem[] }) {
       .filter((el): el is HTMLElement => el !== null);
     if (headings.length === 0) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting);
-        if (visible.length > 0) setActiveId(visible[0].target.id);
-      },
-      // 화면 상단 1/4 지점을 지나는 헤딩을 현재 섹션으로 취급
-      { rootMargin: '-20% 0px -70% 0px' },
-    );
-    headings.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight > window.innerHeight;
+      // 페이지 끝에 닿으면 마지막 섹션은 읽기 선까지 못 올라와도 활성화
+      if (scrollable && window.innerHeight + window.scrollY >= doc.scrollHeight - 2) {
+        setActiveId(headings[headings.length - 1].id);
+        return;
+      }
+      // 읽기 선(화면 상단 1/4)을 지난 마지막 헤딩이 현재 섹션
+      const line = window.innerHeight * 0.25;
+      let current = headings[0].id;
+      for (const el of headings) {
+        if (el.getBoundingClientRect().top <= line) current = el.id;
+      }
+      setActiveId(current);
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
   }, [items]);
 
   if (items.length === 0) return null;
@@ -39,6 +60,7 @@ export function SectionIndex({ items }: { items: SectionIndexItem[] }) {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
+                onClick={() => setActiveId(item.id)}
                 className={`flex items-center gap-2 text-[13px] leading-[1.6] transition-colors ${
                   active
                     ? 'font-medium text-neutral-800'
