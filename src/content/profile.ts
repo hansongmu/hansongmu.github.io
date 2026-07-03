@@ -3,8 +3,8 @@ import type { CareerItem, Profile } from './types';
 export const careers: CareerItem[] = [
   {
     company: '제우스',
-    companyDescription: '반도체·디스플레이 장비 제조 기업',
-    role: 'IT운영 · 사내 시스템 개발',
+    companyDescription: '반도체와 디스플레이 장비 제조 기업',
+    role: 'IT 운영, 사내 시스템 개발',
     period: '2018. 10 ~ 현재',
     logo: '/zeus.svg',
     bullets: ['사내 시스템 개발 및 운영', 'IT 시스템 및 보안 솔루션 운영'],
