@@ -25,7 +25,6 @@ export interface Profile {
   tagline: string;
   motto: string;
   paragraphs: string[];
-  strengths: { label: string; text: string }[];
   links: { label: string; href: string }[];
 }
 
