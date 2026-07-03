@@ -19,15 +19,14 @@ export function Intro() {
           ))}
         </div>
         <h3 className="mt-8 text-sm font-medium text-neutral-800">주요 경험 &amp; 강점</h3>
-        <ul className="mt-3 space-y-2">
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
           {profile.strengths.map((s) => (
-            <li key={s.label} className="text-sm leading-[1.6] text-neutral-600">
-              <span className="font-medium text-neutral-800">{s.label}</span>
-              <span className="text-neutral-400"> — </span>
-              {s.text}
-            </li>
+            <div key={s.label} className="rounded-lg border border-neutral-200 p-4">
+              <p className="text-sm font-medium text-neutral-800">{s.label}</p>
+              <p className="mt-1.5 text-[13px] leading-[1.6] text-neutral-500">{s.text}</p>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
     </FadeIn>
   );
