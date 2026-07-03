@@ -24,3 +24,15 @@ describe('getAllBuildSlugs', () => {
     expect(slugs).toHaveLength(11);
   });
 });
+
+describe('getBuildsByStartDesc', () => {
+  it('sorts builds by start date, newest first', async () => {
+    const { getBuildsByStartDesc } = await import('./getBuild');
+    const starts = getBuildsByStartDesc().map((b) => {
+      const m = b.period.match(/(\d{4})\.\s*(\d{1,2})/)!;
+      return Number(m[1]) * 12 + Number(m[2]);
+    });
+    const sorted = [...starts].sort((a, b) => b - a);
+    expect(starts).toEqual(sorted);
+  });
+});

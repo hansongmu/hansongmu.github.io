@@ -8,3 +8,12 @@ export function getBuildBySlug(slug: string): Build | undefined {
 export function getAllBuildSlugs(): string[] {
   return builds.map((b) => b.slug);
 }
+
+/* Projects 목록 정렬 — period의 시작 연·월 기준 내림차순 (표기 예: '2026. 6 ~ 현재') */
+export function getBuildsByStartDesc(): Build[] {
+  const start = (b: Build) => {
+    const m = b.period.match(/(\d{4})\.\s*(\d{1,2})/);
+    return m ? Number(m[1]) * 12 + Number(m[2]) : 0;
+  };
+  return [...builds].sort((a, b) => start(b) - start(a));
+}
