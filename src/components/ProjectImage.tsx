@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { imageDims } from '@/content/imageDims';
 
 interface ProjectImageProps {
   src: string;
@@ -11,6 +12,13 @@ interface ProjectImageProps {
 /* ai-app ImageZoom과 동일한 라이트박스 — radix 없이 같은 룩앤필/동작을 재현 */
 export function ProjectImage({ src, alt, caption }: ProjectImageProps) {
   const [open, setOpen] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // 브라우저 캐시로 이미 로드된 이미지는 onLoad가 안 뛸 수 있으므로 마운트 시 complete 확인
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -25,14 +33,35 @@ export function ProjectImage({ src, alt, caption }: ProjectImageProps) {
     };
   }, [open]);
 
+  // 크기맵이 있으면 로드 전에 종횡비를 확보해 화면 튐(CLS)을 0으로 만든다
+  const dim = imageDims[src];
+
   return (
     <figure>
-      <div className="overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50">
+      <div
+        className="relative overflow-hidden rounded-lg border border-neutral-200 bg-neutral-50"
+        style={dim ? { aspectRatio: `${dim.w} / ${dim.h}` } : undefined}
+      >
+        {!loaded && (
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 animate-[shimmer_1.6s_ease-in-out_infinite] bg-[length:200%_100%]"
+            style={{
+              backgroundImage:
+                'linear-gradient(90deg, #f5f5f5 25%, #e9e9e9 37%, #f5f5f5 63%)',
+            }}
+          />
+        )}
         {/* 정적 export: next/image 대신 일반 img 사용 */}
         <img
+          ref={imgRef}
           src={src}
           alt={alt}
-          className="w-full cursor-zoom-in"
+          className={`w-full cursor-zoom-in transition-opacity duration-500 ${
+            loaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          onLoad={() => setLoaded(true)}
+          onError={() => setLoaded(true)}
           onClick={() => setOpen(true)}
         />
       </div>
