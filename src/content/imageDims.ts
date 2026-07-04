@@ -59,7 +59,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/crm/41.png': { w: 372, h: 819 },
   '/projects/crm/42.png': { w: 370, h: 813 },
   '/projects/expense-management/134.png': { w: 2880, h: 1800 },
-  '/projects/expense-management/135.png': { w: 2880, h: 1800 },
+  '/projects/expense-management/135.png': { w: 2340, h: 1650 },
   '/projects/expense-management/141.png': { w: 2880, h: 1800 },
   '/projects/expense-management/157.png': { w: 1170, h: 2532 },
   '/projects/expense-management/158.png': { w: 1170, h: 2532 },
