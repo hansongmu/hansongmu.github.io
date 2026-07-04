@@ -24,3 +24,10 @@ body {
     opacity: 1;
   }
 }
+
+/* 이미지 로딩 스켈레톤 — 배경 그라디언트를 옆으로 흘려 shimmer 효과 */
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
