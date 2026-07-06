@@ -131,7 +131,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/work-app-platform/164.png': { w: 1170, h: 2532 },
   '/projects/work-app-platform/165.png': { w: 1170, h: 2532 },
   '/projects/work-app-platform/88.png': { w: 2880, h: 1800 },
-  '/projects/work-app-platform/91.png': { w: 1848, h: 856 },
+  '/projects/work-app-platform/91.png': { w: 2880, h: 1800 },
   '/projects/work-app-platform/92.png': { w: 1886, h: 916 },
   '/projects/work-app-platform/97.png': { w: 2880, h: 1800 },
   '/projects/work-app-platform/98.png': { w: 1645, h: 917 },
