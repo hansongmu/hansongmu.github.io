@@ -17,7 +17,7 @@ export async function generateMetadata({
   if (!build) return {};
   const firstParagraph = build.blocks.find((b) => b.type === 'paragraph');
   return {
-    title: `${build.title} — 한송무`,
+    title: `${build.title} - 한송무`,
     description: firstParagraph ? `${firstParagraph.text.slice(0, 120)}…` : build.category,
   };
 }
