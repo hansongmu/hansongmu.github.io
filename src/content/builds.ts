@@ -80,7 +80,7 @@ export const builds: Build[] = [
       { type: 'image', src: '/projects/work-app-platform/153.png', alt: '앱 관리 화면' },
       { type: 'paragraph', text: '앱이 운영 단계로 들어서면 필요해지는 기능들을 한 화면에 모았습니다. 앱 정의(폼, 목록, 프로세스, 접근제어)와 운영 시점의 부가 기능을 카드로 분리해 배치했습니다.' },
       { type: 'heading', text: '앱 간 데이터 연동' },
-      { type: 'image', src: '/projects/work-app-platform/91.png', alt: '앱 간 데이터 참조 설정 화면' },
+      { type: 'image', src: '/projects/work-app-platform/91.png', alt: '앱 간 데이터 참조 - 공개 컴포넌트 설정 화면', caption: '앱 간 데이터 참조 - 다른 앱에 노출할 컴포넌트를 필드 단위로 설정합니다' },
       { type: 'image', src: '/projects/work-app-platform/92.png', alt: '앱 간 참조 관계 시각화 화면' },
       { type: 'paragraph', text: '같은 데이터를 여러 앱에서 중복 입력하는 것을 막기 위해 앱 간 데이터 참조를 만들었습니다. 검색 기준 필드와 표시 필드를 운영자가 직접 매핑하고, 앱 간 양방향 참조 관계를 시각화하는 관리 화면도 함께 두었습니다. 참조는 역방향으로도 볼 수 있어, 문서 상세에서 이 문서를 참조하는 다른 앱의 문서들을 확인할 수 있습니다.' },
       { type: 'heading', text: '데이터 복사' },
