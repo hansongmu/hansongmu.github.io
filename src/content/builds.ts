@@ -7,7 +7,7 @@ export const builds: Build[] = [
     category: 'Enterprise System',
     org: 'GlobalZeus',
     role: '1인 풀스택',
-    period: '2026. 6 ~ 현재',
+    period: '2026. 6 ~ 2026. 7',
     tech: 'Next.js · Node.js · MSSQL · OpenAI API',
     blocks: [
       { type: 'image', src: '/projects/expense-management/134.png', alt: '법인카드 경비 조회 화면', caption: '경비 조회와 청구 - 법인카드' },
@@ -46,7 +46,7 @@ export const builds: Build[] = [
     category: 'No-Code Platform',
     org: 'GlobalZeus',
     role: '1인 풀스택',
-    period: '2026. 5 ~ 현재',
+    period: '2026. 5 ~ 2026. 7',
     tech: 'Next.js · Node.js · MSSQL · Redis · Elasticsearch',
     blocks: [
       { type: 'image', src: '/projects/work-app-platform/145.png', alt: '메인 화면 - 전체 앱 카탈로그', caption: '메인 화면 - 전체 앱 카탈로그' },
@@ -129,7 +129,7 @@ export const builds: Build[] = [
     category: 'Enterprise Portal',
     org: 'GlobalZeus',
     role: '1인 풀스택',
-    period: '2026. 5 ~ 현재',
+    period: '2026. 5 ~ 2026. 7',
     tech: 'Next.js · Node.js · MSSQL · Capacitor',
     blocks: [
       { type: 'image', src: '/projects/oneplace/136.png', alt: '홈 대시보드 화면', caption: '홈 대시보드' },
@@ -158,7 +158,7 @@ export const builds: Build[] = [
     category: 'BI Platform',
     org: 'GlobalZeus',
     role: '1인 풀스택',
-    period: '2026. 5 ~ 현재',
+    period: '2026. 5 ~ 진행중',
     tech: 'Next.js · Node.js · MSSQL · Recharts · dnd-kit',
     blocks: [
       { type: 'image', src: '/projects/bi/102.png', alt: '포털 홈 화면', caption: '포털 홈 화면' },
@@ -196,12 +196,12 @@ export const builds: Build[] = [
     category: 'Enterprise System',
     org: 'GlobalZeus',
     role: '1인 풀스택',
-    period: '2022. 12 ~ 현재',
+    period: '2022. 12 ~ 2023. 7',
     tech: 'Next.js · Node.js · MSSQL',
     blocks: [
       { type: 'image', src: '/projects/patent-management/108.png', alt: '전사 특허 통계 대시보드', caption: '전사 특허 통계 대시보드 - 연도별 출원과 등록 추이, 분야별 분포' },
       { type: 'heading', text: '개요' },
-      { type: 'paragraph', text: '개발 초창기이던 2022년에 EJS와 저장 프로시저 기반으로 구축해 운영해온 전사 특허와 직무발명 관리 시스템을, Next.js 구조로 현대화하고 있습니다. 출원과 등록 특허 현황, 직무발명 접수, 연차료 관리, 통계 대시보드에 더해 공지와 Q&A 게시판, 열람 권한을 관리하는 관리자 콘솔까지 하나의 앱으로 제공합니다.' },
+      { type: 'paragraph', text: '개발 초창기이던 2022년에 EJS와 저장 프로시저 기반으로 구축해 운영해온 전사 특허와 직무발명 관리 시스템을, 2026년에 Next.js 구조로 현대화했습니다. 출원과 등록 특허 현황, 직무발명 접수, 연차료 관리, 통계 대시보드에 더해 공지와 Q&A 게시판, 열람 권한을 관리하는 관리자 콘솔까지 하나의 앱으로 제공합니다.' },
       { type: 'paragraph', text: '2026년 들어 주요 화면을 App Router와 React Query, 별도 REST API 구조로 옮겼습니다. 기존 저장 프로시저와 데이터 계약은 그대로 두었습니다. 화면 이관에 그치지 않고 발명자 식별 체계를 사번 기준으로 정리하고 통계와 알림을 새로 설계하는 것까지를 현대화의 범위로 잡았습니다.' },
       { type: 'heading', text: '특허 현황 관리' },
       { type: 'image', src: '/projects/patent-management/109.png', alt: '특허 현황 목록 화면', caption: '특허 현황 목록 - 컬럼별 인라인 필터와 목록 다운로드' },
@@ -226,7 +226,7 @@ export const builds: Build[] = [
     category: 'AI Platform',
     org: 'GlobalZeus',
     role: '1인 풀스택',
-    period: '2025. 12 ~ 현재',
+    period: '2025. 12 ~ 진행중',
     tech: 'Next.js · Node.js · FastAPI · LangGraph · Qdrant · Redis · MSSQL',
     blocks: [
       { type: 'image', src: '/projects/ai-platform/118.png', alt: '메인 화면', caption: '메인 화면' },
