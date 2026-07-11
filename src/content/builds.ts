@@ -233,7 +233,7 @@ export const builds: Build[] = [
       { type: 'paragraph', text: 'Next.js 프론트엔드, Express BFF, Python/FastAPI AI 서버의 세 영역으로 분리해 각각 독립 서비스로 운영합니다. AI 서버는 LangGraph 워크플로우와 임베딩 파이프라인, LLM 호출을 책임지고, 문서 생성과 코드 실행은 다시 별도의 격리 샌드박스 컨테이너에서 코드로 실행됩니다.' },
       { type: 'paragraph', text: 'AI 서버 안에서 요청은 LangGraph 기반 에이전트 그래프로 처리됩니다. 진입 라우팅으로 경로를 정한 뒤 MainAgent가 도구를 반복해 호출하고, 웹페이지 생성만 전용 에이전트가 맡습니다. 사내 지식 검색도 별도 노드가 아니라 에이전트가 호출하는 도구입니다.' },
       { type: 'image', src: '/projects/ai-platform/179.png', alt: 'AI 플랫폼 LangGraph 에이전트 그래프 다이어그램', caption: '실제 에이전트 그래프 - 분류·전담 노드를 걷어낸 단일 ReAct 구조입니다. 진입 경로만 결정론으로 정하고, 이후 도구 선택은 에이전트가 판단합니다.' },
-      { type: 'paragraph', text: '응답은 SSE 스트리밍에 Redis Stream 기반 재개 구조를 더해, 새로고침하거나 네트워크가 끊겨도 진행 중인 응답을 이어볼 수 있습니다. 사용자가 화면을 떠나도 서버는 생성을 끝까지 완주해 저장하므로, 돌아오면 완성된 답변과 산출물이 기다립니다. 반응형 UI라 모바일에서도 기능 제약 없이 쓸 수 있습니다.' },
+      { type: 'paragraph', text: '응답은 SSE 스트리밍에 Redis Stream 기반 재개 구조를 더해, 새로고침하거나 네트워크가 끊겨도 진행 중인 응답을 이어볼 수 있습니다. 사용자가 화면을 떠나도 서버는 생성을 끝까지 완주해 저장하므로, 돌아오면 완성된 답변과 산출물이 기다립니다.' },
       { type: 'heading', text: '질의응답 인터페이스' },
       { type: 'subheading', text: '일반 질의' },
       { type: 'image', src: '/projects/ai-platform/119.png', alt: '일반 질의 화면', caption: '일반 질의 (텍스트와 이미지)' },
