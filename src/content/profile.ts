@@ -21,5 +21,6 @@ export const profile: Profile = {
   ],
   links: [
     { label: 'Email', href: 'mailto:gksthdan@naver.com' },
+    { label: 'GitHub', href: 'https://github.com/ssong-mu' },
   ],
 };
