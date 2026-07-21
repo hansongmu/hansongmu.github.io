@@ -49,7 +49,7 @@ export const builds: Build[] = [
     period: '2026. 5 ~ 2026. 7',
     tech: 'Next.js · Node.js · MSSQL · Redis · Elasticsearch',
     blocks: [
-      { type: 'image', src: '/projects/work-app-platform/145.png', alt: '메인 화면 - 전체 앱 카탈로그', caption: '메인 화면 - 전사 이관을 마친 269개 운영 앱 카탈로그' },
+      { type: 'image', src: '/projects/work-app-platform/145.png', alt: '메인 화면 - 전체 앱 카탈로그', caption: '메인 화면 - 전체 앱 카탈로그' },
       { type: 'heading', text: '개요' },
       { type: 'paragraph', text: '그룹웨어를 전환하면서 다우오피스 Works로 만들어 쓰던 사내 업무 앱들을 대체할 플랫폼이 필요했습니다. 코드 없이 입력 양식과 목록, 프로세스를 정의해 업무 앱을 만드는 노코드 플랫폼을 구축했습니다.' },
       { type: 'paragraph', text: '같은 기능을 복제하는 대신, 기존 Works에서 부족했던 기능을 보완하고 사내 결재 시스템과의 연동을 더하는 방향으로 재설계했습니다. 다우오피스에서 쓰던 앱과 문서는 배치 스크립트로 이관했습니다. 옮긴 값이 원본과 다르지 않은지 대조하는 감사 스크립트를 따로 두어 유실과 오변환을 잡았고, 2026년 7월 전사 데이터 이관을 마치고 운영에 들어갔습니다.' },
@@ -243,7 +243,7 @@ export const builds: Build[] = [
       { type: 'heading', text: '아키텍처' },
       { type: 'image', src: '/projects/ai-platform/159.png', alt: 'AI 플랫폼 아키텍처 다이어그램', caption: '프론트엔드, BFF, AI 서버의 세 영역으로 나뉘고, 문서 생성과 코드 실행은 별도 샌드박스 컨테이너에서 격리 실행됩니다.' },
       { type: 'paragraph', text: 'Next.js 프론트엔드, Express BFF, Python/FastAPI AI 서버의 세 영역으로 분리해 각각 독립 서비스로 운영합니다. AI 서버는 LangGraph 워크플로우와 임베딩 파이프라인, LLM 호출을 책임지고, 문서 생성과 코드 실행은 다시 별도의 격리 샌드박스 컨테이너에서 코드로 실행됩니다.' },
-      { type: 'paragraph', text: 'AI 서버 안에서 요청은 LangGraph 기반 에이전트 그래프로 처리됩니다. MainAgent가 도구를 반복해 호출하는 단일 ReAct 루프이고, 사내 지식 검색과 프로젝트 파일 검색도 별도 노드가 아니라 에이전트가 호출하는 도구입니다. 웹페이지 생성만 전용 에이전트가 맡습니다.' },
+      { type: 'paragraph', text: 'AI 서버 안에서 요청은 LangGraph 기반 에이전트 그래프로 처리됩니다. MainAgent가 도구를 반복해 호출하는 단일 ReAct 루프이고, 사내 지식 검색과 프로젝트 파일 검색도 별도 노드가 아니라 에이전트가 호출하는 도구입니다. 웹페이지 생성만 전용 에이전트가 맡습니다. 에이전트에 묶이는 도구 목록은 고정이 아니어서, 프로젝트 턴에만 프로젝트 파일 도구가 붙고 게스트 세션에는 코드 실행과 웹페이지 생성 도구가 아예 붙지 않는 식으로, 턴의 맥락이 그 턴에 쓸 수 있는 도구를 정합니다.' },
       { type: 'image', src: '/projects/ai-platform/179.png', alt: 'AI 플랫폼 LangGraph 에이전트 그래프 다이어그램', caption: '실제 에이전트 그래프 - 분류·전담 노드를 걷어낸 단일 ReAct 구조입니다. 검색·실행·생성 전부를 에이전트가 도구로 판단해 호출합니다.' },
       { type: 'paragraph', text: '응답은 SSE 스트리밍에 Redis Stream 기반 재개 구조를 더해, 새로고침하거나 네트워크가 끊겨도 진행 중인 응답을 이어볼 수 있습니다. 사용자가 화면을 떠나도 서버는 생성을 끝까지 완주해, 돌아오면 완성된 답변을 확인할 수 있습니다.' },
       { type: 'heading', text: '질의응답 인터페이스' },
