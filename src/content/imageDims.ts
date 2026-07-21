@@ -35,6 +35,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/ai-platform/179.png': { w: 2500, h: 1900 },
   '/projects/ai-platform/180.png': { w: 2880, h: 1800 },
   '/projects/ai-platform/181.png': { w: 2880, h: 1800 },
+  '/projects/ai-platform/190.png': { w: 3840, h: 2160 },
   '/projects/ai-platform/24.png': { w: 494, h: 806 },
   '/projects/attendance/115.png': { w: 1600, h: 900 },
   '/projects/attendance/43.png': { w: 1895, h: 943 },
