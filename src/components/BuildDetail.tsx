@@ -117,7 +117,7 @@ export function BuildDetail({ build }: { build: Build }) {
               <h2
                 key={key}
                 id={headingId(block.text, key)}
-                className="mb-5 pt-2 scroll-mt-20 text-[15px] font-semibold text-neutral-900"
+                className="mb-5 pt-2 scroll-mt-20 text-[16px] font-semibold text-neutral-900"
               >
                 {block.text}
               </h2>
@@ -132,7 +132,7 @@ export function BuildDetail({ build }: { build: Build }) {
           }
           if (block.type === 'paragraph') {
             return (
-              <p key={key} className="text-sm leading-[1.6] text-neutral-600">
+              <p key={key} className="text-[15px] leading-[1.6] text-neutral-600">
                 {block.text}
               </p>
             );
