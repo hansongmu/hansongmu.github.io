@@ -19,8 +19,5 @@ export const profile: Profile = {
     '반도체 장비 회사에서 사내 시스템 개발을 담당하며 AI 플랫폼, CRM, PMS, 인사평가 시스템 등 전사 업무용 시스템을 개발하였습니다.',
     '단순한 기능 구현에 그치지 않고, 더 나은 사용자 경험을 위해 편함보다 고민과 불편함을 선택하는 개발자가 되고자 합니다.',
   ],
-  links: [
-    { label: 'Email', href: 'mailto:gksthdan@naver.com' },
-    { label: 'GitHub', href: 'https://github.com/ssong-mu' },
-  ],
+  links: [],
 };
