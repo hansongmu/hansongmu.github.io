@@ -76,6 +76,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/expense-management/160.png': { w: 2560, h: 752 },
   '/projects/expense-management/182.png': { w: 2880, h: 1800 },
   '/projects/expense-management/183.png': { w: 2880, h: 1800 },
+  '/projects/expense-management/190.png': { w: 2400, h: 380 },
   '/projects/hr-evaluation/116.png': { w: 1600, h: 900 },
   '/projects/hr-evaluation/73.png': { w: 1900, h: 893 },
   '/projects/hr-evaluation/74.png': { w: 1652, h: 895 },
