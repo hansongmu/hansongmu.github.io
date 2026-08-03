@@ -57,6 +57,11 @@ export function ProjectImage({ src, alt, caption }: ProjectImageProps) {
           ref={imgRef}
           src={src}
           alt={alt}
+          // 상세 페이지 한 장에 이미지가 최대 36장(ai-platform)이고 스크린샷 한 장이
+          // 500~700KB 다. lazy 가 없으면 진입 즉시 전부 내려받아 초기 로딩이 길어진다.
+          // aspectRatio 를 미리 잡아 두므로(imageDims) lazy 를 켜도 CLS 는 0 이다.
+          loading="lazy"
+          decoding="async"
           className={`w-full cursor-zoom-in transition-opacity duration-500 ${
             loaded ? 'opacity-100' : 'opacity-0'
           }`}
