@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getBuildBySlug, getAllBuildSlugs } from '@/content/getBuild';
 import { BuildDetail } from '@/components/BuildDetail';
+import { SITE_URL } from '@/content/site';
 
 export function generateStaticParams() {
   return getAllBuildSlugs().map((slug) => ({ slug }));
@@ -16,9 +17,22 @@ export async function generateMetadata({
   const build = getBuildBySlug(slug);
   if (!build) return {};
   const firstParagraph = build.blocks.find((b) => b.type === 'paragraph');
+  const title = `${build.title} - 한송무`;
+  const description = firstParagraph
+    ? `${firstParagraph.text.slice(0, 120)}…`
+    : build.category;
+  // 루트 layout 의 openGraph 는 사이트 공통값이라, 상세 링크를 공유하면 제목이
+  // "한송무 - Portfolio" 로 뜬다. 페이지별로 덮어써야 프로젝트명이 보인다.
   return {
-    title: `${build.title} - 한송무`,
-    description: firstParagraph ? `${firstParagraph.text.slice(0, 120)}…` : build.category,
+    title,
+    description,
+    openGraph: {
+      type: 'article',
+      url: `${SITE_URL}/projects/${slug}/`,
+      title,
+      description,
+    },
+    twitter: { card: 'summary', title, description },
   };
 }
 
