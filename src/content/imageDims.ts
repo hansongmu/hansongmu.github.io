@@ -101,7 +101,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/patent-management/173.png': { w: 2520, h: 1500 },
   '/projects/pms/138.png': { w: 2880, h: 1800 },
   '/projects/pms/139.png': { w: 2880, h: 1620 },
-  '/projects/pms/140.png': { w: 2880, h: 1800 },
+  '/projects/pms/140.png': { w: 2880, h: 1620 },
   '/projects/pms/141.png': { w: 2880, h: 1800 },
   '/projects/pms/142.png': { w: 2880, h: 1800 },
   '/projects/pms/184.png': { w: 3840, h: 2160 },
