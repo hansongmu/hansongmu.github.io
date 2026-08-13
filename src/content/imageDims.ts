@@ -100,7 +100,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/oneplace/144.png': { w: 2880, h: 1800 },
   '/projects/patent-management/108.png': { w: 2520, h: 1500 },
   '/projects/patent-management/109.png': { w: 2520, h: 1500 },
-  '/projects/patent-management/110.png': { w: 2520, h: 1500 },
+  '/projects/patent-management/110.png': { w: 2880, h: 1620 },
   '/projects/patent-management/168.png': { w: 2520, h: 1500 },
   '/projects/patent-management/172.png': { w: 2520, h: 1500 },
   '/projects/patent-management/173.png': { w: 2520, h: 1500 },
