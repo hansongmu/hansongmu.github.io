@@ -4,7 +4,7 @@ import { Career } from '@/components/Career';
 import { BuildList } from '@/components/BuildList';
 import { TechStack } from '@/components/TechStack';
 import { SectionDivider } from '@/components/SectionDivider';
-import { getBuildsByStartDesc } from '@/content/getBuild';
+import { getBuildsByRecencyDesc } from '@/content/getBuild';
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <SectionDivider />
       <TechStack />
       <SectionDivider />
-      <BuildList builds={getBuildsByStartDesc()} />
+      <BuildList builds={getBuildsByRecencyDesc()} />
     </div>
   );
 }
