@@ -253,7 +253,7 @@ export const builds: Build[] = [
     category: 'Enterprise System',
     org: 'GlobalZeus',
     role: '1인 풀스택',
-    period: '2022. 12 ~ 2023. 7',
+    period: '2026. 7',
     tech: 'Next.js · Node.js · MSSQL',
     blocks: [
       { type: 'image', src: '/projects/patent-management/108.png', alt: '전사 특허 통계 대시보드', caption: '전사 특허 통계 대시보드 - 연도별 출원과 등록 추이, 분야별 분포' },
