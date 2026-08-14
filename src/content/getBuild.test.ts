@@ -21,7 +21,7 @@ describe('getAllBuildSlugs', () => {
     expect(slugs).toContain('bi');
     expect(slugs).toContain('ai-platform');
     expect(slugs).toContain('attendance');
-    expect(slugs).toHaveLength(11);
+    expect(slugs).toHaveLength(12);
   });
 });
 
