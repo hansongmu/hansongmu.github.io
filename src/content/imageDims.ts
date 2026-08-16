@@ -142,7 +142,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/shared-editor-viewer/206.png': { w: 2880, h: 1880 },
   '/projects/shared-editor-viewer/207.png': { w: 2880, h: 1880 },
   '/projects/shared-editor-viewer/240.png': { w: 2880, h: 1620 },
-  '/projects/shared-editor-viewer/241.png': { w: 1224, h: 790 },
+  '/projects/shared-editor-viewer/241.png': { w: 2880, h: 1200 },
   '/projects/visit-reservation/49.png': { w: 1893, h: 905 },
   '/projects/visit-reservation/50.png': { w: 1261, h: 833 },
   '/projects/visit-reservation/51.png': { w: 373, h: 814 },
