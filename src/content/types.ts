@@ -10,7 +10,8 @@ export interface Build {
   category: string;
   org?: string;
   role?: string;
-  period: string;
+  /** 연월 표기. Archive 항목처럼 특정 기간에 묶이지 않는 것은 비운다. */
+  period?: string;
   tech?: string;
   blocks: BuildBlock[];
 }
