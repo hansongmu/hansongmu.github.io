@@ -64,10 +64,12 @@ export function BuildDetail({ build }: { build: Build }) {
                 <dd className="text-neutral-600">{build.role}</dd>
               </div>
             )}
-            <div className="flex">
-              <dt className="w-14 shrink-0 text-neutral-400">기간</dt>
-              <dd className="text-neutral-600">{build.period}</dd>
-            </div>
+            {build.period && (
+              <div className="flex">
+                <dt className="w-14 shrink-0 text-neutral-400">기간</dt>
+                <dd className="text-neutral-600">{build.period}</dd>
+              </div>
+            )}
             {build.tech && (
               <div className="flex">
                 <dt className="w-14 shrink-0 text-neutral-400">기술</dt>
@@ -125,7 +127,7 @@ export function BuildDetail({ build }: { build: Build }) {
           }
           if (block.type === 'subheading') {
             return (
-              <h3 key={key} className="pt-2 text-sm font-medium text-neutral-800">
+              <h3 key={key} className="pt-2 text-[15px] font-medium text-neutral-800">
                 {block.text}
               </h3>
             );
