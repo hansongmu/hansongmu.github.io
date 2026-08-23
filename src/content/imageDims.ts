@@ -137,7 +137,7 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/pms/70.png': { w: 1662, h: 940 },
   '/projects/pms/71.png': { w: 538, h: 444 },
   '/projects/pms/72.png': { w: 580, h: 639 },
-  '/projects/shared-editor-viewer/202.png': { w: 2132, h: 1832 },
+  '/projects/shared-editor-viewer/202.png': { w: 3190, h: 1820 },
   '/projects/shared-editor-viewer/203.png': { w: 2080, h: 1016 },
   '/projects/shared-editor-viewer/204.png': { w: 2880, h: 1800 },
   '/projects/shared-editor-viewer/205.png': { w: 2880, h: 1620 },

@@ -11,7 +11,7 @@ export const archive: Build[] = [
     role: '1인 풀스택',
     tech: 'Tiptap · ProseMirror · Yjs · Next.js · Node.js · pdf.js · LibreOffice',
     blocks: [
-      { type: 'image', src: '/projects/shared-editor-viewer/202.png', alt: '공용 에디터로 작성 중인 보고서 화면', caption: '공용 에디터 - 병합된 표 머리와 셀 배경색, 이미지, 번호 목록을 한 벌의 컴포넌트가 담당합니다' },
+      { type: 'image', src: '/projects/shared-editor-viewer/202.png', alt: '공용 에디터로 작성 중인 업무노트 화면', caption: '공용 에디터 - 업무노트에서 여러 명이 함께 고치는 문서를 이 한 벌의 컴포넌트가 그립니다' },
       { type: 'heading', text: '개요' },
       { type: 'paragraph', text: '본문을 쓰는 에디터는 원래 DEXT5라는 상용 제품을 붙여 쓰고 있었습니다. 제품 자체에 불만이 있었던 것은 아니지만, 하고 싶은 것이 생겨도 제품이 지원하는 범위 안에서만 가능했습니다. 여러 명이 같은 문서를 동시에 고치게 하거나 본문을 AI가 이어 쓰게 하려면 에디터 안쪽을 직접 다뤄야 해서, 직접 만들기로 했습니다.' },
       { type: 'paragraph', text: '문서뷰어는 사정이 달랐습니다. 상용 뷰어를 쓰고 있지 않았고, 첨부는 시스템마다 각자 처리하고 있었습니다.' },
