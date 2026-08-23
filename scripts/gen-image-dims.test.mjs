@@ -18,9 +18,10 @@ describe('parsePngDimensions', () => {
     expect(parsePngDimensions(makePngHeader(1280, 720))).toEqual({ w: 1280, h: 720 });
   });
 
+  /* 실제 캡처 한 장으로 파서를 확인한다. 화면을 재캡처하면 이 숫자도 함께 고친다. */
   it('reads the true dimensions of a real project screenshot', () => {
     const png = readFileSync(new URL('../public/projects/ai-platform/02.png', import.meta.url));
-    expect(parsePngDimensions(png)).toEqual({ w: 492, h: 910 });
+    expect(parsePngDimensions(png)).toEqual({ w: 2880, h: 1800 });
   });
 
   it('throws on a buffer without a PNG signature', () => {
