@@ -2,11 +2,19 @@ import type { Build } from '@/content/types';
 import { BuildListItem } from './BuildListItem';
 import { FadeIn } from './FadeIn';
 
-export function BuildList({ builds }: { builds: Build[] }) {
+export function BuildList({
+  builds,
+  title = 'Projects',
+  delay = 0.15,
+}: {
+  builds: Build[];
+  title?: string;
+  delay?: number;
+}) {
   return (
-    <FadeIn delay={0.15}>
+    <FadeIn delay={delay}>
       <section className="pt-3">
-        <h2 className="text-[15px] font-semibold text-neutral-900">Projects</h2>
+        <h2 className="text-[15px] font-semibold text-neutral-900">{title}</h2>
         <div className="mt-4 divide-y divide-neutral-200">
           {builds.map((b) => (
             <div key={b.slug} className="py-1">

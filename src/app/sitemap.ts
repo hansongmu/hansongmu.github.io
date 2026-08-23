@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { getAllBuildSlugs } from '@/content/getBuild';
 import { getAllArchiveSlugs } from '@/content/getArchive';
+import { getAllAiWorkSlugs } from '@/content/getAiWork';
 import { SITE_URL } from '@/content/site';
 
 // output: 'export' 라 빌드 시 out/sitemap.xml 로 생성된다.
@@ -13,6 +14,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...getAllBuildSlugs().map((slug) => ({
       // trailingSlash: true 설정과 실제 경로를 맞춘다.
       url: `${SITE_URL}/projects/${slug}/`,
+      lastModified: now,
+      priority: 0.8,
+    })),
+    ...getAllAiWorkSlugs().map((slug) => ({
+      url: `${SITE_URL}/ai/${slug}/`,
       lastModified: now,
       priority: 0.8,
     })),
