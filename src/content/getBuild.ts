@@ -50,3 +50,12 @@ export function getBuildsByRecencyDesc(): Build[] {
       latestPhaseStartOf(b.period) - latestPhaseStartOf(a.period),
   );
 }
+
+/* Projects 에서 뺄 항목. AI 플랫폼은 전체가 AI 작업이라 AI 섹션 한 곳에만 둔다.
+   BI 와 경비지출은 본체가 업무 시스템이라 Projects 에 그대로 남기고,
+   그 안의 AI 부분만 AI 섹션에서 따로 연다(→ content/ai.ts). */
+const PROJECTS_EXCLUDED: ReadonlySet<string> = new Set(['ai-platform']);
+
+export function getProjectBuilds(): Build[] {
+  return getBuildsByRecencyDesc().filter((b) => !PROJECTS_EXCLUDED.has(b.slug));
+}

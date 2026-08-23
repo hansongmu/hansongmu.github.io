@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { Build } from '@/content/types';
 import { FadeIn } from './FadeIn';
 import { ProjectImage } from './ProjectImage';
@@ -68,6 +69,19 @@ export function BuildDetail({ build }: { build: Build }) {
               <div className="flex">
                 <dt className="w-14 shrink-0 text-neutral-400">기간</dt>
                 <dd className="text-neutral-600">{build.period}</dd>
+              </div>
+            )}
+            {build.partOf && (
+              <div className="flex">
+                <dt className="w-14 shrink-0 text-neutral-400">시스템</dt>
+                <dd>
+                  <Link
+                    href={build.partOf.href}
+                    className="text-neutral-600 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
+                  >
+                    {build.partOf.title}
+                  </Link>
+                </dd>
               </div>
             )}
             {build.tech && (
