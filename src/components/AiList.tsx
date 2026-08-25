@@ -2,7 +2,7 @@ import type { AiEntry } from '@/content/getAiWork';
 import { BuildListItem } from './BuildListItem';
 import { FadeIn } from './FadeIn';
 
-/* Projects·Archive 와 목록 모양은 같지만, 항목이 두 소스에서 오고 이름도
+/* Projects 와 목록 모양은 같지만, 항목이 두 소스에서 오고 이름도
    프로젝트명이 아니라 그 안에서 한 AI 작업이라 별도 컴포넌트로 둔다. */
 export function AiList({ entries }: { entries: AiEntry[] }) {
   return (

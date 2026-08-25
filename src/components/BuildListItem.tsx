@@ -29,7 +29,7 @@ export function BuildListItem({
           {build.title}
         </span>
       )}
-      {/* 기간이 없는 항목(Archive)은 오른쪽을 비운다 */}
+      {/* 기간이 없는 항목은 오른쪽을 비운다 */}
       {build.period && (
         <span className="shrink-0 text-sm leading-[1.5] text-neutral-400">{build.period}</span>
       )}
