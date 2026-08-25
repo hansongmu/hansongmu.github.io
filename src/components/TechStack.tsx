@@ -17,7 +17,7 @@ export function TechStack() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex items-center gap-1.5 text-sm leading-[1.6] text-neutral-600"
+                    className="inline-flex items-center gap-1.5 text-sm leading-[1.6] text-[#333]"
                   >
                     {techIcons[item] && (
                       <svg

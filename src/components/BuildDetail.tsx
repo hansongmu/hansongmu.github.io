@@ -62,13 +62,13 @@ export function BuildDetail({ build }: { build: Build }) {
             {build.role && (
               <div className="flex">
                 <dt className="w-14 shrink-0 text-neutral-400">역할</dt>
-                <dd className="text-neutral-600">{build.role}</dd>
+                <dd className="text-[#333]">{build.role}</dd>
               </div>
             )}
             {build.period && (
               <div className="flex">
                 <dt className="w-14 shrink-0 text-neutral-400">기간</dt>
-                <dd className="text-neutral-600">{build.period}</dd>
+                <dd className="text-[#333]">{build.period}</dd>
               </div>
             )}
             {build.partOf && (
@@ -77,7 +77,7 @@ export function BuildDetail({ build }: { build: Build }) {
                 <dd>
                   <Link
                     href={build.partOf.href}
-                    className="text-neutral-600 underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
+                    className="text-[#333] underline decoration-neutral-300 underline-offset-4 hover:text-neutral-900"
                   >
                     {build.partOf.title}
                   </Link>
@@ -148,7 +148,7 @@ export function BuildDetail({ build }: { build: Build }) {
           }
           if (block.type === 'paragraph') {
             return (
-              <p key={key} className="text-[15px] leading-[1.6] text-neutral-600">
+              <p key={key} className="text-[15px] leading-[1.6] text-[#333]">
                 {block.text}
               </p>
             );

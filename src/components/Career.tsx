@@ -29,7 +29,7 @@ export function Career() {
               </div>
               <ul className="mt-3 space-y-1">
                 {c.bullets.map((b) => (
-                  <li key={b} className="text-sm leading-[1.6] text-neutral-600">
+                  <li key={b} className="text-sm leading-[1.6] text-[#333]">
                     {b}
                   </li>
                 ))}
