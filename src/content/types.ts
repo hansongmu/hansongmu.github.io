@@ -10,7 +10,7 @@ export interface Build {
   category: string;
   org?: string;
   role?: string;
-  /** 연월 표기. Archive 항목처럼 특정 기간에 묶이지 않는 것은 비운다. */
+  /** 연월 표기. 공용 컴포넌트처럼 특정 기간에 묶이지 않는 것은 비운다. */
   period?: string;
   tech?: string;
   /** 이 글이 더 큰 시스템의 한 기능일 때, 그 시스템으로 돌아가는 길. */

@@ -1,6 +1,5 @@
 import type { MetadataRoute } from 'next';
 import { getAllBuildSlugs } from '@/content/getBuild';
-import { getAllArchiveSlugs } from '@/content/getArchive';
 import { getAllAiWorkSlugs } from '@/content/getAiWork';
 import { SITE_URL } from '@/content/site';
 
@@ -19,11 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...getAllAiWorkSlugs().map((slug) => ({
       url: `${SITE_URL}/ai/${slug}/`,
-      lastModified: now,
-      priority: 0.8,
-    })),
-    ...getAllArchiveSlugs().map((slug) => ({
-      url: `${SITE_URL}/archive/${slug}/`,
       lastModified: now,
       priority: 0.8,
     })),
