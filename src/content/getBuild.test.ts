@@ -29,7 +29,9 @@ describe('getAllBuildSlugs', () => {
     expect(slugs).toContain('ai-platform');
     expect(slugs).toContain('attendance');
     expect(slugs).toContain('payroll');
-    expect(slugs).toHaveLength(13);
+    expect(slugs).toContain('shared-editor-viewer');
+    expect(slugs).toContain('fab-tour');
+    expect(slugs).toHaveLength(15);
   });
 });
 
