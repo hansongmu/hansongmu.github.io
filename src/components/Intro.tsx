@@ -13,7 +13,7 @@ export function Intro() {
         </blockquote>
         <div className="mt-4 space-y-2">
           {profile.paragraphs.map((p, i) => (
-            <p key={i} className="text-sm leading-[1.6] text-neutral-600">
+            <p key={i} className="text-sm leading-[1.6] text-[#333]">
               {p}
             </p>
           ))}
