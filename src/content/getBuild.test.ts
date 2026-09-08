@@ -3,6 +3,7 @@ import {
   getBuildBySlug,
   getAllBuildSlugs,
   getBuildsByRecencyDesc,
+  getProjectBuilds,
   lastActivityOf,
   startOf,
   latestPhaseStartOf,
@@ -107,5 +108,18 @@ describe('latestPhaseStartOf', () => {
 
   it('falls back to the only start when there is a single phase', () => {
     expect(latestPhaseStartOf('2023. 4 ~ 진행중')).toBe(2023 * 12 + 4);
+  });
+});
+
+describe('getProjectBuilds', () => {
+  /* AI 플랫폼은 AI 섹션의 대표작이면서 Projects 목록에도 남는다.
+     한때 AI 섹션 한 곳에만 두려고 Projects 에서 빼 두었는데,
+     그러면 만든 것을 늘어놓는 자리에 구멍이 나서 도로 넣었다. */
+  it('keeps the AI platform in the project list', () => {
+    expect(getProjectBuilds().map((b) => b.slug)).toContain('ai-platform');
+  });
+
+  it('lists every build', () => {
+    expect(getProjectBuilds()).toHaveLength(getAllBuildSlugs().length);
   });
 });
