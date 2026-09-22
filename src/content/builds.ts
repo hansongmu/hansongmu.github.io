@@ -296,7 +296,7 @@ export const builds: Build[] = [
       { type: 'paragraph', text: 'RAG 기반 사내 챗봇으로 시작해, 지금은 웹 검색과 코드 실행, 문서 생성, 여러 출처를 교차 확인해 보고서를 쓰는 딥리서치까지 하나의 채팅에서 처리하는 사내 AI 플랫폼으로 발전시켰습니다.' },
       { type: 'paragraph', text: '2026년 4월에 사내에 오픈해 운영 중입니다. 오픈 이후에도 실제 질문 로그와 사용자 피드백을 보며 기능을 더하고 구조를 고치는 일을 계속하고 있습니다.' },
       { type: 'heading', text: '아키텍처' },
-      { type: 'image', src: '/projects/ai-platform/159.png', alt: 'AI 플랫폼 아키텍처 다이어그램', caption: '서비스 구성 - 프론트엔드, BFF, AI 서버' },
+      { type: 'image', src: '/projects/ai-platform/159.png', alt: 'AI 플랫폼 아키텍처 다이어그램', caption: '서비스 구성' },
       { type: 'paragraph', text: 'Next.js 프론트엔드, Express BFF, Python/FastAPI AI 서버의 세 영역으로 분리해 각각 독립 서비스로 운영합니다. AI 서버는 LangGraph 에이전트와 임베딩 파이프라인, LLM 호출을 맡고, 문서 생성과 코드 실행은 별도의 격리 샌드박스 컨테이너에서 돌아갑니다.' },
       { type: 'paragraph', text: 'AI 서버 안에서 요청은 LangGraph 기반 에이전트 그래프로 처리됩니다. MainAgent가 도구를 반복해 호출하는 단일 ReAct 루프이고, 사내 지식 검색과 프로젝트 파일 검색도 별도 노드가 아니라 에이전트가 호출하는 도구입니다.' },
       { type: 'paragraph', text: '자체 루프가 필요한 것만 따로 떼어 두었습니다. 웹페이지 생성은 만들고 렌더링해 확인한 뒤 고치는 과정을 반복해야 해서 메인 그래프의 별도 노드로 분리했고, 딥리서치는 하위질문을 나눠 반복 조사하는 자체 그래프를 도구 안에서 돌립니다. 웹 검색은 전담 에이전트를 두지 않고 MainAgent가 결과를 보고 쿼리를 다시 짜게 했습니다.' },
