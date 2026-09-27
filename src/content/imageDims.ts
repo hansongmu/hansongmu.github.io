@@ -126,6 +126,8 @@ export const imageDims: Record<string, { w: number; h: number }> = {
   '/projects/personnel-card/199.png': { w: 2880, h: 1620 },
   '/projects/personnel-card/200.png': { w: 2880, h: 1620 },
   '/projects/personnel-card/201.png': { w: 2880, h: 1620 },
+  '/projects/personnel-card/256.png': { w: 2880, h: 1620 },
+  '/projects/personnel-card/257.png': { w: 2880, h: 1620 },
   '/projects/pms/139.png': { w: 2880, h: 1620 },
   '/projects/pms/140.png': { w: 2880, h: 1620 },
   '/projects/pms/184.png': { w: 3840, h: 2160 },
