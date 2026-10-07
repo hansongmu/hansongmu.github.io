@@ -51,11 +51,15 @@ export function getBuildsByRecencyDesc(): Build[] {
   );
 }
 
-/* Projects 는 만든 것을 빠짐없이 늘어놓는 자리라 아무것도 빼지 않는다.
+/* Projects 는 만든 시스템을 늘어놓는 자리고, 번외 작업과 공용 컴포넌트(other)는 Other 목록에 따로 둔다.
    AI 플랫폼은 전체가 AI 작업이라 AI 섹션에서도 대표로 앞세우지만(→ content/getAiWork.ts),
    그렇다고 Projects 에서 빠지면 만든 목록에 구멍이 나서 양쪽에 함께 둔다.
    BI 와 경비지출은 본체가 업무 시스템이라 Projects 에 그대로 남기고,
    그 안의 AI 부분만 AI 섹션에서 따로 연다(→ content/ai.ts). */
 export function getProjectBuilds(): Build[] {
-  return getBuildsByRecencyDesc();
+  return getBuildsByRecencyDesc().filter((b) => !b.other);
+}
+
+export function getOtherBuilds(): Build[] {
+  return getBuildsByRecencyDesc().filter((b) => b.other);
 }

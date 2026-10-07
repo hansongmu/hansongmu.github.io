@@ -15,6 +15,8 @@ export interface Build {
   tech?: string;
   /** 이 글이 더 큰 시스템의 한 기능일 때, 그 시스템으로 돌아가는 길. */
   partOf?: { title: string; href: string };
+  /** Projects 대신 Other 목록에 둔다. 번외 작업이나 공용 컴포넌트처럼 한 시스템으로 세기 어려운 것. */
+  other?: boolean;
   blocks: BuildBlock[];
 }
 
