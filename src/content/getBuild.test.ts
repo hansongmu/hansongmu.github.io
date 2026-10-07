@@ -4,6 +4,7 @@ import {
   getAllBuildSlugs,
   getBuildsByRecencyDesc,
   getProjectBuilds,
+  getOtherBuilds,
   lastActivityOf,
   startOf,
   latestPhaseStartOf,
@@ -32,7 +33,10 @@ describe('getAllBuildSlugs', () => {
     expect(slugs).toContain('payroll');
     expect(slugs).toContain('shared-editor-viewer');
     expect(slugs).toContain('fab-tour');
-    expect(slugs).toHaveLength(15);
+    expect(slugs).toContain('esg-portal');
+    expect(slugs).toContain('group-collab');
+    expect(slugs).toContain('brity-plus');
+    expect(slugs).toHaveLength(18);
   });
 });
 
@@ -59,7 +63,7 @@ describe('lastActivityOf', () => {
      이번 달에 끝난 작업이 이번 달에도 하고 있는 작업보다 뒤로 밀리지 않게 하려는 것. */
   it('treats an unfinished project as level with the latest month in the data', () => {
     expect(lastActivityOf('2023. 4 ~ 진행중')).toBe(
-      lastActivityOf('2023. 2 ~ 2023. 7, 2026. 8'),
+      lastActivityOf('2023. 2 ~ 2023. 7, 2026. 10'),
     );
   });
 });
@@ -78,8 +82,8 @@ describe('getBuildsByRecencyDesc', () => {
 
   it('puts a rebuilt project above ones that ended earlier', () => {
     const order = getBuildsByRecencyDesc().map((b) => b.slug);
-    /* 특허관리는 재구축 시점(2026. 7)이 마지막 활동이라 2025년에 끝난 CRM보다 앞선다 */
-    expect(order.indexOf('patent-management')).toBeLessThan(order.indexOf('crm'));
+    /* 특허관리는 재구축 뒤(2026)가 마지막 활동이라 2025년에 끝난 근태 시스템보다 앞선다 */
+    expect(order.indexOf('patent-management')).toBeLessThan(order.indexOf('attendance'));
   });
 
   it('breaks ties by the later phase start', () => {
@@ -118,8 +122,14 @@ describe('getProjectBuilds', () => {
   it('keeps the AI platform in the project list', () => {
     expect(getProjectBuilds().map((b) => b.slug)).toContain('ai-platform');
   });
+});
 
-  it('lists every build', () => {
-    expect(getProjectBuilds()).toHaveLength(getAllBuildSlugs().length);
+describe('getOtherBuilds', () => {
+  it('moves side work out of the project list', () => {
+    const projects = getProjectBuilds().map((b) => b.slug);
+    const other = getOtherBuilds().map((b) => b.slug);
+    expect(other).toEqual(expect.arrayContaining(['brity-plus', 'shared-editor-viewer', 'fab-tour']));
+    expect(projects).not.toContain('brity-plus');
+    expect(projects.length + other.length).toBe(getAllBuildSlugs().length);
   });
 });
