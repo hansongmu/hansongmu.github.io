@@ -45,6 +45,8 @@ export function ProgressiveBlur() {
           }}
         />
       ))}
+      {/* 본문 폭이 화면을 꽉 채우는 좁은 화면에서는 Index 아래로 글자가 지나가 겹친다 → 흰 페이드로 가린다 */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white from-55% to-transparent lg:hidden" />
     </motion.div>
   );
 }
