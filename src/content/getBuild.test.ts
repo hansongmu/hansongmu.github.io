@@ -98,10 +98,10 @@ describe('getBuildsByRecencyDesc', () => {
     }
   });
 
-  /* 이번 달에 재구축을 끝낸 인사카드가, 예전부터 이어 오며 이번 달에도 손댄 PMS보다 앞에 온다 */
+  /* 둘 다 진행 중이면 이번 달에 시작한 그룹 협업 포털이, 7월에 다시 시작한 환경안전포털보다 앞에 온다 */
   it('leads with the most recently started work', () => {
     const order = getBuildsByRecencyDesc().map((b) => b.slug);
-    expect(order.indexOf('personnel-card')).toBeLessThan(order.indexOf('pms'));
+    expect(order.indexOf('group-collab')).toBeLessThan(order.indexOf('esg-portal'));
   });
 });
 
