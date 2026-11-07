@@ -39,7 +39,6 @@ body:has([data-home]) > main {
 /* AI 표식. 마우스를 올리면 살짝 기울고 떼면 부드럽게 돌아온다. 키프레임이 아니라 전환이라 중간에 떼도 튀지 않는다.
    올린 칸은 고정이고 안쪽 아이콘만 움직여 올림이 풀리지 않는다. */
 .ai-mark-icon {
-  overflow: visible;
   transition: transform 0.3s cubic-bezier(0.22, 0.8, 0.26, 1);
 }
 .ai-mark:hover .ai-mark-icon,
@@ -47,18 +46,15 @@ body:has([data-home]) > main {
   transform: rotate(12deg) scale(1.1);
 }
 
-/* 목차의 AI 표식은 스크롤로 AI 섹션에 닿는 순간에만 두 별이 반대로 돌며 커졌다 돌아온다.
-   별이 네 방향으로 같은 모양이라 90도에서 끝나도 원래 모습과 같다.
+/* 목차의 AI 표식은 스크롤로 AI 섹션에 닿는 순간에만 두 별이 반대로 살짝 기울며 커졌다 돌아온다.
    hover 는 바깥 svg, 이 움직임은 안쪽 path 를 움직여 서로 다시 재생시키지 않는다. */
 @keyframes ai-spark-big {
-  0% { transform: none; }
-  45% { transform: rotate(90deg) scale(1.4); }
-  100% { transform: rotate(90deg); }
+  0%, 100% { transform: none; }
+  45% { transform: rotate(30deg) scale(1.18); }
 }
 @keyframes ai-spark-small {
-  0% { transform: none; }
-  45% { transform: rotate(-90deg) scale(1.6); }
-  100% { transform: rotate(-90deg); }
+  0%, 100% { transform: none; }
+  45% { transform: rotate(-30deg) scale(1.25); }
 }
 .ai-mark-big,
 .ai-mark-small {
@@ -66,10 +62,10 @@ body:has([data-home]) > main {
   transform-origin: center;
 }
 .ai-nav.is-active .ai-mark-big {
-  animation: ai-spark-big 0.7s cubic-bezier(0.22, 0.8, 0.26, 1);
+  animation: ai-spark-big 0.55s cubic-bezier(0.22, 0.8, 0.26, 1);
 }
 .ai-nav.is-active .ai-mark-small {
-  animation: ai-spark-small 0.7s cubic-bezier(0.22, 0.8, 0.26, 1) 0.08s;
+  animation: ai-spark-small 0.55s cubic-bezier(0.22, 0.8, 0.26, 1) 0.06s;
 }
 @media (prefers-reduced-motion: reduce) {
   .ai-mark-icon {
