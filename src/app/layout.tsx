@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { MotionProvider } from "@/components/MotionProvider";
 import { SITE_URL } from "@/content/site";
 
 const TITLE = "한송무 - Portfolio";
@@ -45,9 +46,11 @@ export default function RootLayout({
         </noscript>
       </head>
       <body>
-        <Nav />
-        <main className="pt-14">{children}</main>
-        <Footer />
+        <MotionProvider>
+          <Nav />
+          <main className="pt-14">{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

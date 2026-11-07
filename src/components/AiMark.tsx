@@ -1,7 +1,7 @@
 'use client';
 
 import { useId } from 'react';
-import { MotionConfig, motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 /* ZEUS AIP 제품에서 쓰는 AI 아이콘(ai-app AiSparkIcon)과 같은 모양과 색.
    reveal 을 켜면 처음 보일 때 한 번 돈다. 마우스를 올릴 때와 목차에서 활성화될 때의 움직임은 globals.css 가 맡는다. */
@@ -25,16 +25,14 @@ export function AiMark({ size = 16, reveal = false }: { size?: number; reveal?: 
   );
   if (!reveal) return <span className="ai-mark inline-block shrink-0">{icon}</span>;
   return (
-    <MotionConfig reducedMotion="user">
-      <motion.span
-        className="ai-mark inline-block shrink-0"
-        initial={{ scale: 0.4, rotate: -40, opacity: 0 }}
-        whileInView={{ scale: [0.4, 1.15, 1], rotate: [-40, 8, 0], opacity: [0, 1, 1] }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7, delay: 0.12, times: [0, 0.6, 1], ease: [0.22, 0.8, 0.26, 1] }}
-      >
-        {icon}
-      </motion.span>
-    </MotionConfig>
+    <m.span
+      className="ai-mark inline-block shrink-0"
+      initial={{ scale: 0.4, rotate: -40, opacity: 0 }}
+      whileInView={{ scale: [0.4, 1.15, 1], rotate: [-40, 8, 0], opacity: [0, 1, 1] }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.12, times: [0, 0.6, 1], ease: [0.22, 0.8, 0.26, 1] }}
+    >
+      {icon}
+    </m.span>
   );
 }

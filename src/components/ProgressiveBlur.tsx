@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { m, useScroll, useTransform } from 'framer-motion';
 
 // 위로 갈수록 블러가 세지는 겹층 backdrop-filter — 참고: jihoonwrks.me 상단 블러
 const LAYERS = [
@@ -28,7 +28,7 @@ export function ProgressiveBlur() {
   const opacity = useTransform(scrollY, [0, 80], [0, 1]);
 
   return (
-    <motion.div
+    <m.div
       aria-hidden
       style={{ opacity }}
       className="pointer-events-none absolute inset-0 overflow-hidden"
@@ -47,6 +47,6 @@ export function ProgressiveBlur() {
       ))}
       {/* 본문 폭이 화면을 꽉 채우는 좁은 화면에서는 Index 아래로 글자가 지나가 겹친다 → 흰 페이드로 가린다 */}
       <div className="absolute inset-0 bg-gradient-to-b from-white from-55% to-transparent lg:hidden" />
-    </motion.div>
+    </m.div>
   );
 }
