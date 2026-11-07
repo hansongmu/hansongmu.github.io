@@ -111,13 +111,13 @@ export function BuildDetail({ build }: { build: Build }) {
             if (seg.items.length === 1) {
               const { block, key } = seg.items[0];
               return (
-                <div key={key} className={breakout}>
+                <div key={key} className={block.narrow ? 'mx-auto max-w-[560px]' : breakout}>
                   <ProjectImage src={block.src} alt={block.alt} caption={block.caption} />
                 </div>
               );
             }
-            // 연속 이미지는 그리드로 — 4장 이상이면 3열로 더 촘촘하게
-            const cols = seg.items.length >= 4 ? 'sm:grid-cols-3' : 'sm:grid-cols-2';
+            // 연속 이미지는 그리드로. 2장과 4장은 2열, 나머지는 3열이라 마지막 줄에 한 장만 남지 않는다
+            const cols = seg.items.length % 2 === 0 && seg.items.length < 6 ? 'sm:grid-cols-2' : 'sm:grid-cols-3';
             return (
               <div key={seg.items[0].key} className={`grid gap-3 ${cols} ${breakout}`}>
                 {seg.items.map(({ block, key }) => (

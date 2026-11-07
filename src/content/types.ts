@@ -2,7 +2,8 @@ export type BuildBlock =
   | { type: 'heading'; text: string }
   | { type: 'subheading'; text: string }
   | { type: 'paragraph'; text: string }
-  | { type: 'image'; src: string; alt: string; caption?: string };
+  /** narrow: 창 하나만 담은 캡처. 본문 폭으로 늘리면 화면이 확대돼 보여 좁게 둔다. */
+  | { type: 'image'; src: string; alt: string; caption?: string; narrow?: boolean };
 
 export interface Build {
   slug: string;
