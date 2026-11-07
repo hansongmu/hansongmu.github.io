@@ -5,24 +5,22 @@ import { FadeIn } from './FadeIn';
 export function BuildList({
   builds,
   title = 'Projects',
-  delay = 0.15,
+  id,
 }: {
   builds: Build[];
   title?: string;
-  delay?: number;
+  id: string;
 }) {
   return (
-    <FadeIn delay={delay}>
-      <section className="pt-3">
-        <h2 className="text-[15px] font-semibold text-neutral-900">{title}</h2>
-        <div className="mt-4 divide-y divide-neutral-200">
-          {builds.map((b) => (
-            <div key={b.slug} className="py-1">
-              <BuildListItem build={b} />
-            </div>
-          ))}
-        </div>
-      </section>
-    </FadeIn>
+    <section id={id} className="scroll-mt-24">
+      <FadeIn>
+        <h2 className="text-xl font-bold tracking-[-0.015em] text-ink">{title}</h2>
+      </FadeIn>
+      <ul className="-mx-3.5 mt-4 space-y-2">
+        {builds.map((b, i) => (
+          <BuildListItem key={b.slug} build={b} index={i} />
+        ))}
+      </ul>
+    </section>
   );
 }

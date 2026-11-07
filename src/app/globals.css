@@ -1,6 +1,14 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #171719;
+  --color-sub: rgba(46, 47, 51, 0.88);
+  --color-mute: rgba(55, 56, 60, 0.61);
+  --color-surface: #f4f4f5;
+  --color-point: #0066ff;
+}
+
 :root {
   --color-text: #1a1a1a;
   --color-muted: #8a8a8a;
@@ -14,6 +22,67 @@ body {
   font-family: 'Pretendard', system-ui, sans-serif;
   color: var(--color-text);
   background: #ffffff;
+  /* 한글은 어절 단위로 줄을 바꾼다. 긴 영문과 주소만 칸을 넘지 않게 끊는다 */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 홈은 왼쪽 칼럼이 첫 화면을 맡아, 상세 글용 상단 Index 와 푸터를 쓰지 않는다 */
+body:has([data-home]) > nav,
+body:has([data-home]) > footer {
+  display: none;
+}
+body:has([data-home]) > main {
+  padding-top: 0;
+}
+
+/* AI 표식. 마우스를 올리면 살짝 기울고 떼면 부드럽게 돌아온다. 키프레임이 아니라 전환이라 중간에 떼도 튀지 않는다.
+   올린 칸은 고정이고 안쪽 아이콘만 움직여 올림이 풀리지 않는다. */
+.ai-mark-icon {
+  overflow: visible;
+  transition: transform 0.3s cubic-bezier(0.22, 0.8, 0.26, 1);
+}
+.ai-mark:hover .ai-mark-icon,
+.ai-nav:hover .ai-mark-icon {
+  transform: rotate(12deg) scale(1.1);
+}
+
+/* 목차의 AI 표식은 스크롤로 AI 섹션에 닿는 순간에만 두 별이 반대로 돌며 커졌다 돌아온다.
+   별이 네 방향으로 같은 모양이라 90도에서 끝나도 원래 모습과 같다.
+   hover 는 바깥 svg, 이 움직임은 안쪽 path 를 움직여 서로 다시 재생시키지 않는다. */
+@keyframes ai-spark-big {
+  0% { transform: none; }
+  45% { transform: rotate(90deg) scale(1.4); }
+  100% { transform: rotate(90deg); }
+}
+@keyframes ai-spark-small {
+  0% { transform: none; }
+  45% { transform: rotate(-90deg) scale(1.6); }
+  100% { transform: rotate(-90deg); }
+}
+.ai-mark-big,
+.ai-mark-small {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.ai-nav.is-active .ai-mark-big {
+  animation: ai-spark-big 0.7s cubic-bezier(0.22, 0.8, 0.26, 1);
+}
+.ai-nav.is-active .ai-mark-small {
+  animation: ai-spark-small 0.7s cubic-bezier(0.22, 0.8, 0.26, 1) 0.08s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ai-mark-icon {
+    transition: none;
+  }
+  .ai-mark:hover .ai-mark-icon,
+  .ai-nav:hover .ai-mark-icon {
+    transform: none;
+  }
+  .ai-mark-big,
+  .ai-mark-small {
+    animation: none !important;
+  }
 }
 
 @keyframes image-zoom-fade-in {

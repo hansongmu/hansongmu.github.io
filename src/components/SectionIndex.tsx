@@ -1,13 +1,24 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { AiMark } from './AiMark';
 
 export interface SectionIndexItem {
   id: string;
   text: string;
+  /** 홈 목차의 AI 항목. 파란 글자와 선, AI 표식으로 늘 구분된다. */
+  accent?: boolean;
 }
 
-export function SectionIndex({ items }: { items: SectionIndexItem[] }) {
+export function SectionIndex({
+  items,
+  variant = 'fixed',
+}: {
+  items: SectionIndexItem[];
+  /** fixed: 상세 글의 왼쪽 여백에 뜨는 작은 목차. inline: 홈의 고정 칼럼 안에 놓는 큰 목차. */
+  variant?: 'fixed' | 'inline';
+}) {
+  const inline = variant === 'inline';
   const [activeId, setActiveId] = useState<string | null>(items[0]?.id ?? null);
 
   useEffect(() => {
@@ -52,8 +63,8 @@ export function SectionIndex({ items }: { items: SectionIndexItem[] }) {
   if (items.length === 0) return null;
 
   return (
-    <aside className="fixed left-8 top-1/2 hidden -translate-y-1/2 xl:block">
-      <ul className="space-y-2">
+    <aside className={inline ? 'mt-14 hidden lg:block' : 'fixed left-8 top-1/2 hidden -translate-y-1/2 xl:block'}>
+      <ul className={inline ? '' : 'space-y-2'}>
         {items.map((item) => {
           const active = item.id === activeId;
           return (
@@ -61,18 +72,31 @@ export function SectionIndex({ items }: { items: SectionIndexItem[] }) {
               <a
                 href={`#${item.id}`}
                 onClick={() => setActiveId(item.id)}
-                className={`flex items-center gap-2 text-[13px] leading-[1.6] transition-colors ${
-                  active
-                    ? 'font-medium text-neutral-800'
-                    : 'text-neutral-400 hover:text-neutral-600'
+                className={`flex items-center transition-colors ${inline ? 'gap-3.5 py-[9px] text-sm' : 'gap-2 text-[13px] leading-[1.6]'} ${
+                  item.accent
+                    ? `ai-nav font-semibold text-point ${active ? 'is-active' : ''}`
+                    : active
+                      ? `font-medium ${inline ? 'text-ink' : 'text-neutral-800'}`
+                      : `${inline ? 'text-neutral-400 hover:text-ink' : 'text-neutral-400 hover:text-neutral-600'}`
                 }`}
               >
                 <span
-                  className={`h-0.5 w-3 rounded-full transition-colors ${
-                    active ? 'bg-neutral-700' : 'bg-neutral-300'
-                  }`}
+                  className={
+                    inline
+                      ? `h-[1.5px] rounded-full transition-[width,background-color] duration-300 ease-out motion-reduce:transition-none ${active ? 'w-[60px]' : 'w-7'} ${
+                          item.accent ? 'bg-point' : active ? 'bg-ink' : 'bg-neutral-300'
+                        }`
+                      : `h-0.5 w-3 rounded-full transition-colors ${active ? 'bg-neutral-700' : 'bg-neutral-300'}`
+                  }
                 />
-                {item.text}
+                {item.accent ? (
+                  <span className="inline-flex items-center gap-[5px]">
+                    <AiMark size={15} />
+                    {item.text}
+                  </span>
+                ) : (
+                  item.text
+                )}
               </a>
             </li>
           );

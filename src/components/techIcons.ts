@@ -29,29 +29,33 @@ const databaseGlyph =
 const terminalGlyph =
   'M21 4H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1zM5.293 8.707a1 1 0 0 1 1.414-1.414l4 4a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414-1.414L8.586 12 5.293 8.707zM18 17h-5a1 1 0 1 1 0-2h5a1 1 0 1 1 0 2z';
 
-export const techIcons: Record<string, string> = {
-  'Next.js': siNextdotjs.path,
-  TypeScript: siTypescript.path,
-  JavaScript: siJavascript.path,
-  'HTML/CSS': siHtml5.path,
-  'Node.js': siNodedotjs.path,
-  'Express.js': siExpress.path,
-  FastAPI: siFastapi.path,
-  'Socket.io': siSocketdotio.path,
-  EJS: siEjs.path,
-  MSSQL: databaseGlyph,
-  Redis: siRedis.path,
-  Qdrant: siQdrant.path,
-  ElasticSearch: siElasticsearch.path,
-  Nginx: siNginx.path,
-  Podman: siPodman.path,
-  LangChain: siLangchain.path,
-  LangGraph: siLanggraph.path,
-  Git: siGit.path,
-  'Github Actions': siGithubactions.path,
-  Sentry: siSentry.path,
-  pnpm: siPnpm.path,
-  'Claude Code': siClaudecode.path,
-  Cursor: siCursor.path,
-  Codex: terminalGlyph,
+const icon = (si: { path: string; hex: string }) => ({ path: si.path, color: `#${si.hex}` });
+
+/* 키는 content/techStack.ts 의 표기와 같아야 한다(getBuild.test.ts 가 확인한다).
+   제네릭 글리프는 그 제품이 주로 쓰는 색만 입힌다. */
+export const techIcons: Record<string, { path: string; color: string }> = {
+  'Next.js': icon(siNextdotjs),
+  TypeScript: icon(siTypescript),
+  JavaScript: icon(siJavascript),
+  'HTML/CSS': icon(siHtml5),
+  'Node.js': icon(siNodedotjs),
+  'Express.js': icon(siExpress),
+  FastAPI: icon(siFastapi),
+  'Socket.IO': icon(siSocketdotio),
+  EJS: icon(siEjs),
+  MSSQL: { path: databaseGlyph, color: '#CC2927' },
+  Redis: icon(siRedis),
+  Qdrant: icon(siQdrant),
+  Elasticsearch: icon(siElasticsearch),
+  Nginx: icon(siNginx),
+  Podman: icon(siPodman),
+  LangChain: icon(siLangchain),
+  LangGraph: icon(siLanggraph),
+  Git: icon(siGit),
+  'GitHub Actions': icon(siGithubactions),
+  Sentry: icon(siSentry),
+  pnpm: icon(siPnpm),
+  'Claude Code': icon(siClaudecode),
+  Cursor: icon(siCursor),
+  Codex: { path: terminalGlyph, color: '#171717' },
 };

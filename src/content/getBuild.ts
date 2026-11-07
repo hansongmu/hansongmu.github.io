@@ -9,6 +9,13 @@ export function getAllBuildSlugs(): string[] {
   return builds.map((b) => b.slug);
 }
 
+/** 목록에 쓰는 한 줄 설명. 첫 문단의 첫 문장을 그대로 쓴다. */
+export function summaryOf(build: Build): string {
+  const first = build.blocks.find((b) => b.type === 'paragraph');
+  if (!first || first.type !== 'paragraph') return '';
+  return first.text.match(/^.*?[다요]\.+(?=\s|$)/)?.[0].replace(/\.+$/, '.') ?? first.text;
+}
+
 /** period에 적힌 연월을 모두 뽑는다. 연도만 쓰면 1월로 본다. */
 function marks(period: string | undefined): number[] {
   return [...(period ?? '').matchAll(/(\d{4})(?:\.\s*(\d{1,2}))?/g)].map(

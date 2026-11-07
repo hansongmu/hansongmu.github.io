@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   getBuildBySlug,
@@ -8,7 +9,12 @@ import {
   lastActivityOf,
   startOf,
   latestPhaseStartOf,
+  summaryOf,
 } from './getBuild';
+import { aiWorks } from './ai';
+import { builds } from './builds';
+import { techStack } from './techStack';
+import { techIcons } from '../components/techIcons';
 
 describe('getBuildBySlug', () => {
   it('returns the build matching the slug', () => {
@@ -131,5 +137,25 @@ describe('getOtherBuilds', () => {
     expect(other).toEqual(expect.arrayContaining(['brity-plus', 'shared-editor-viewer', 'fab-tour']));
     expect(projects).not.toContain('brity-plus');
     expect(projects.length + other.length).toBe(getAllBuildSlugs().length);
+  });
+});
+
+describe('summaryOf', () => {
+  it('takes only the first sentence of the first paragraph', () => {
+    const blocks = [{ type: 'paragraph' as const, text: 'A를 만든 시스템입니다.. 둘째 문장입니다.' }];
+    expect(summaryOf({ slug: 'x', title: 'x', category: 'x', blocks })).toBe('A를 만든 시스템입니다.');
+  });
+});
+
+describe('home thumbnails', () => {
+  it('exists for every listed build', () => {
+    expect([...builds, ...aiWorks].filter((b) => !existsSync(`public/thumbs/${b.slug}.webp`)).map((b) => b.slug)).toEqual([]);
+  });
+});
+
+describe('techIcons', () => {
+  it('has an icon for every listed technology', () => {
+    const items = techStack.flatMap((g) => g.items);
+    expect(items.filter((i) => !techIcons[i])).toEqual([]);
   });
 });

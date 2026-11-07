@@ -38,6 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <head>
+        {/* FadeIn 은 서버에서 투명하게 그려진다. 스크립트가 꺼진 환경에서도 내용이 보이게 한다 */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
+      </head>
       <body>
         <Nav />
         <main className="pt-14">{children}</main>
