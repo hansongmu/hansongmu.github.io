@@ -473,7 +473,7 @@ export const builds: Build[] = [
       { type: 'paragraph', text: '지금은 외부 AI 도구에 MCP로 열어 둔 도구를 채팅에도 플러그인으로 그대로 붙였습니다. 채팅용 도구를 따로 두었을 때는 같은 질문도 어디서 묻느냐에 따라 답이 달랐기 때문입니다.' },
       { type: 'paragraph', text: '플러그인은 + 메뉴에서 영역마다 끌 수 있고, 끈 영역을 물으면 어디서 켜는지 알려 줍니다.' },
       { type: 'paragraph', text: '일정은 Brity 캘린더에서 읽고, 동료의 일정은 캘린더에서 내게 보이는 만큼만 엽니다.' },
-      { type: 'image', src: '/projects/ai-platform/196.png', alt: '입력창 + 메뉴의 플러그인 - PMS, 근태, 평가, 조직을 켜고 끄는 토글', caption: '+ 메뉴의 플러그인' },
+      { type: 'image', src: '/projects/ai-platform/196.png', alt: '입력창 + 메뉴의 플러그인 - PMS, 근태, 평가, 조직, 일정, Works를 켜고 끄는 토글', caption: '+ 메뉴의 플러그인' },
       { type: 'heading', text: '되묻기' },
       { type: 'paragraph', text: '문서를 만들어 달라는 요청에 재료가 부족하면, 지어내지 않고 입력창 위에 질문 카드를 띄워 먼저 묻습니다. 질문은 한 번에 두 개까지이고, 에이전트가 낸 선택지 아래에 직접 입력 칸이 항상 붙습니다.' },
       { type: 'paragraph', text: '답은 카드에 모았다가 마지막 질문에 답할 때 "질문: / 답변:" 으로 묶어 한 번에 보냅니다. 고른 항목만 보내면 에이전트가 그게 무엇에 대한 답인지 모르기 때문입니다.' },
