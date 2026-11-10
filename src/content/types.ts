@@ -19,6 +19,22 @@ export interface Build {
   /** Projects 대신 Other 목록에 둔다. 번외 작업이나 공용 컴포넌트처럼 한 시스템으로 세기 어려운 것. */
   other?: boolean;
   blocks: BuildBlock[];
+  /** 본문 뒤에 크게 보여 줄 화면 모음(발표 자료처럼 그림이 주인공인 글). 영상은 화면에 들어오면 재생한다. */
+  showcase?: Showcase;
+}
+
+export interface ShowcaseMedia {
+  src: string;
+  alt: string;
+  /** 있으면 이 영상을 재생하고 src 는 포스터로 쓴다. */
+  video?: string;
+  wide?: boolean;
+}
+
+export interface Showcase {
+  hero: ShowcaseMedia;
+  stats: { value: number; unit: string; label: string }[];
+  items: ShowcaseMedia[];
 }
 
 export interface TechGroup {

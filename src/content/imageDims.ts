@@ -1,6 +1,17 @@
 // 이 파일은 scripts/gen-image-dims.mjs 로 생성됩니다. 직접 수정하지 마세요.
 // 프로젝트 스크린샷의 픽셀 크기맵 — ProjectImage가 종횡비를 확보해 CLS를 0으로 만드는 데 씁니다.
 export const imageDims: Record<string, { w: number; h: number }> = {
+  '/projects/ai-day/288.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/290.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/291.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/292.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/293.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/295.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/297.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/298.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/299.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/301.png': { w: 3840, h: 2160 },
+  '/projects/ai-day/303.png': { w: 3840, h: 2160 },
   '/projects/ai-platform/09.png': { w: 3456, h: 2160 },
   '/projects/ai-platform/11.png': { w: 3840, h: 2160 },
   '/projects/ai-platform/118.png': { w: 3840, h: 2160 },

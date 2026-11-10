@@ -6,6 +6,48 @@ import type { Build } from './types';
    사내 AI 플랫폼은 전체가 AI 작업이라 여기 두지 않고 프로젝트 글을 그대로 쓴다. */
 export const aiWorks: Build[] = [
   {
+    slug: 'ai-platform-review',
+    title: 'AI 플랫폼 개발 성과 발표',
+    category: 'AI',
+    org: 'GlobalZeus',
+    role: '발표 자료 제작',
+    period: '2026. 11',
+    partOf: { title: '사내 AI 플랫폼', href: '/projects/ai-platform' },
+    blocks: [
+      { type: 'heading', text: '개요' },
+      { type: 'paragraph', text: '2025년 12월부터 만들어 온 사내 AI 플랫폼의 개발 성과를 정리한 발표 자료입니다. 사용 현황으로 시작해 RAG 챗봇부터 MCP 데이터 연결까지 기능이 더해진 순서를 한 장씩 따라갑니다.' },
+      { type: 'paragraph', text: '발표 자료도 플랫폼의 AI 앱으로 만들어, 장마다 숫자와 장면이 움직입니다.' },
+      { type: 'heading', text: '발표 자료' },
+    ],
+    showcase: {
+      hero: { src: '/projects/ai-day/cover.jpg', video: '/projects/ai-day/cover.mp4', alt: '표지 - 누적 사용자, 10월 사용자, 대화 수, AI가 만든 파일 수와 월별 누적 대화 막대' },
+      stats: [
+        { value: 575, unit: '명', label: '누적 사용자' },
+        { value: 15309, unit: '건', label: '대화' },
+        { value: 20118, unit: '건', label: 'AI가 만든 파일' },
+        { value: 5251, unit: '건', label: '커밋' },
+      ],
+      items: [
+        { src: '/projects/ai-day/flow.jpg', video: '/projects/ai-day/flow.mp4', alt: '개발 흐름 - 웨이퍼 카세트에 기능별 도입 시점을 적고 로봇 팔이 장비로 옮기는 3D 장면', wide: true },
+        { src: '/projects/ai-day/288.png', alt: '개발한 시스템 - 2023년부터 만든 사내 시스템의 기간 막대' },
+        { src: '/projects/ai-day/290.png', alt: 'RAG - 사내 문서를 찾아 출처와 함께 답하는 예시' },
+        { src: '/projects/ai-day/291.png', alt: 'AI Day - 2026년 1월 RAG 챗봇 개발 경험을 공유한 발표', wide: true },
+        { src: '/projects/ai-day/292.png', alt: '사내 지식 - 지식 수, 등록 문서, 대화, 사용자와 월별 추이' },
+        { src: '/projects/ai-day/293.png', alt: '문서 생성 - AI가 만든 파일 수와 형식별 비율' },
+        { src: '/projects/ai-day/docgen.jpg', video: '/projects/ai-day/docgen.mp4', alt: '문서 생성 과정 - 요청부터 자료 찾기, 형식 지침, 코드 실행, 자동 검수, 완성 파일까지' },
+        { src: '/projects/ai-day/295.png', alt: '에이전트 구조로 전환 - 분류기가 길을 정하던 구조와 AI가 다음 할 일을 고르는 구조 비교' },
+        { src: '/projects/ai-day/tools.jpg', video: '/projects/ai-day/tools.mp4', alt: '업무 도구 - 에이전트에 연결된 도구 23개', wide: true },
+        { src: '/projects/ai-day/303.png', alt: 'AI 모델 중계 서버 - Claude Code와 Copilot 같은 코딩 도구를 회사 계정으로 모델에 잇는 중계 서버' },
+        { src: '/projects/ai-day/297.png', alt: 'AI 회의록 - 화자별 기록과 요약, 할 일' },
+        { src: '/projects/ai-day/298.png', alt: 'AI 앱 - 대화로 만든 화면을 사내 앱으로 게시' },
+        { src: '/projects/ai-day/299.png', alt: '브라우저 확장 - 내 브라우저에서 페이지를 읽고 조작' },
+        { src: '/projects/ai-day/mcp.jpg', video: '/projects/ai-day/mcp.mp4', alt: 'MCP 데이터 연결 - 채팅과 외부 AI 도구가 PMS, ERP, 인사, 조직도, 메일을 내 권한으로 조회' },
+        { src: '/projects/ai-day/301.png', alt: '우리 회사에 맞춘 온톨로지 - 상용 도입과 자체 개발 비교' },
+        { src: '/projects/ai-day/commit.jpg', video: '/projects/ai-day/commit.mp4', alt: '커밋 5,251건 - 날짜별 커밋 점과 기능별 출시 시점', wide: true },
+      ],
+    },
+  },
+  {
     slug: 'expense-receipt-ai',
     title: 'AI 영수증 자동입력',
     category: 'AI',

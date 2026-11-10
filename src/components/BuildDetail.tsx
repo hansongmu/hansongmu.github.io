@@ -3,6 +3,7 @@ import type { Build } from '@/content/types';
 import { FadeIn } from './FadeIn';
 import { ProjectImage } from './ProjectImage';
 import { SectionIndex } from './SectionIndex';
+import { Showcase } from './Showcase';
 
 function headingId(text: string, index: number) {
   const slug = text.trim().replace(/\s+/g, '-');
@@ -155,6 +156,7 @@ export function BuildDetail({ build }: { build: Build }) {
           }
           return null;
         })}
+        {build.showcase && <Showcase data={build.showcase} />}
       </div>
     </article>
   );
