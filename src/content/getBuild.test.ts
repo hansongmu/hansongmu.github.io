@@ -69,7 +69,7 @@ describe('lastActivityOf', () => {
      이번 달에 끝난 작업이 이번 달에도 하고 있는 작업보다 뒤로 밀리지 않게 하려는 것. */
   it('treats an unfinished project as level with the latest month in the data', () => {
     expect(lastActivityOf('2023. 4 ~ 진행중')).toBe(
-      lastActivityOf('2023. 2 ~ 2023. 7, 2026. 10'),
+      lastActivityOf('2023. 2 ~ 2023. 7, 2026. 11'),
     );
   });
 });
