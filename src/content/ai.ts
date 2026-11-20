@@ -52,13 +52,12 @@ export const aiWorks: Build[] = [
     title: '작업 현황판',
     category: 'AI',
     role: '1인 개발',
-    period: '2026. 11',
     tech: 'Python · React · Vite · Tailwind CSS · Claude Code',
     blocks: [
       { type: 'image', src: '/projects/session-dashboard/313.png', alt: '작업 현황판 대화 화면 - 왼쪽에 메인, 고정, 작업 중, 대기로 나뉜 세션 목록, 가운데 메인 세션이 일을 네 세션에 나눠 맡기고 결과를 받은 대화, 오른쪽 작업 티켓', caption: '대화 - 메인 세션이 일을 나눠 맡기고 결과를 받는 모습' },
       { type: 'heading', text: '개요' },
       { type: 'paragraph', text: 'Claude Code 세션 여러 개에 일을 나눠 맡길 때 쓰는 작업 현황판입니다. 세션마다 무엇을 하고 있는지 한 화면에서 보고, 지시를 보내고, 질문에 답합니다.' },
-      { type: 'paragraph', text: '저장소마다, 일마다 세션을 따로 띄우다 보니 어느 세션이 끝났고 어느 세션이 답을 기다리는지 터미널 창을 넘겨 가며 확인해야 했기 때문입니다.' },
+      { type: 'paragraph', text: 'Claude Code를 터미널에서 여러 개 띄워 일하다 보니, 어느 세션이 끝났고 어느 세션이 답을 기다리는지 창을 넘겨 가며 확인해야 했습니다. 현황을 더 효율적으로 파악할 방법이 있지 않을까 해서 만들었습니다.' },
       { type: 'heading', text: '대화' },
       { type: 'paragraph', text: '왼쪽에는 떠 있는 세션을 메인, 고정, 작업 중, 대기로 나눠 두고 세션마다 마지막 지시와 답을 보여 줍니다. 세션을 고르면 가운데에 대화가 열리고, 다른 세션이 보낸 메시지는 색을 달리해 누가 보냈는지 표시합니다. 왼쪽 아래에는 Claude Code 계정의 5시간, 주간 사용 한도를 띄워 둡니다.' },
       { type: 'paragraph', text: '현황판은 Claude Code가 남기는 세션 목록과 대화 기록 파일을 읽기만 합니다. 세션 쪽에 따로 설치하지 않아도 이미 떠 있는 세션이 그대로 보이게 하려는 것입니다.' },
@@ -73,8 +72,6 @@ export const aiWorks: Build[] = [
       { type: 'heading', text: '픽셀 사무실' },
       { type: 'image', src: '/projects/session-dashboard/316.png', alt: '픽셀 사무실 화면 - 일하는 세션은 책상에, 쉬는 세션은 휴게 공간에 있고, shop-api-refund 를 눌러 뜬 카드에 지금 하는 일과 지시 입력칸이 보이는 모습', caption: '픽셀 - 사람을 눌러 바로 지시하기' },
       { type: 'paragraph', text: '세션 상태를 사무실 그림으로도 봅니다. 일하는 세션은 책상에 앉고, 답을 기다리는 세션은 자리에 서 있고, 쉬는 세션은 휴게 공간에 있습니다. 사람을 누르면 그 세션에 바로 지시합니다.' },
-      { type: 'heading', text: '보안' },
-      { type: 'paragraph', text: '세션에 지시를 보낼 수 있는 화면이라 내 PC 안에서만 열고, 다른 사이트가 요청을 보내지 못하게 요청마다 주소와 전용 헤더를 확인합니다. 지시를 전달하는 데 쓰는 실행은 메시지를 보내는 도구만 쓰게 묶었습니다.' },
     ],
   },
   {
